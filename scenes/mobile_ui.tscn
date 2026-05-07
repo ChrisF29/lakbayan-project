@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bt7i2dmonvdx0"]
+
+[ext_resource type="Script" uid="uid://f2eeeijpy8jf" path="res://scripts/VirtualJoystick.gd" id="1_ll7hi"]
+[ext_resource type="Texture2D" uid="uid://uqe7h5di472s" path="res://assets/Joystick Background.png" id="2_uqj2s"]
+[ext_resource type="Texture2D" uid="uid://brkcr7g8qhsd8" path="res://assets/Joystick Handle.png" id="3_ri1lb"]
+[ext_resource type="Texture2D" uid="uid://ck1ioijxvgeyd" path="res://assets/UI_Flat_Button02a_4.png" id="4_5d2um"]
+[ext_resource type="Texture2D" uid="uid://cqug68dmi5pyb" path="res://assets/UI_Flat_Button02a_1.png" id="5_rphdq"]
+
+[node name="MobileUI" type="CanvasLayer" unique_id=1208487421]
+
+[node name="Joystick" type="Control" parent="." unique_id=644222329 groups=["joystick"]]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -104.0
+offset_right = 128.0
+offset_bottom = -24.0
+grow_vertical = 0
+script = ExtResource("1_ll7hi")
+
+[node name="Base" type="TextureRect" parent="Joystick" unique_id=331759935]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = 40.0
+offset_bottom = -40.0
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture = ExtResource("2_uqj2s")
+expand_mode = 1
+
+[node name="Knob" type="TextureRect" parent="Joystick/Base" unique_id=30878607]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_ri1lb")
+expand_mode = 1
+
+[node name="InteractButton" type="TouchScreenButton" parent="." unique_id=1490206607]
+visible = false
+position = Vector2(362, 186)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_5d2um")
+texture_pressed = ExtResource("5_rphdq")
+action = "interact"

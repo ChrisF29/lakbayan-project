@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bnpa5apvca15u"
+path="res://.godot/imported/Adventure Begins  (16-Bit Arcade No Copyright Music).mp3-b3923d11ad985a9ea16208787ed1416e.mp3str"
+
+[deps]
+
+source_file="res://music/Adventure Begins  (16-Bit Arcade No Copyright Music).mp3"
+dest_files=["res://.godot/imported/Adventure Begins  (16-Bit Arcade No Copyright Music).mp3-b3923d11ad985a9ea16208787ed1416e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

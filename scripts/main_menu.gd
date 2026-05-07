@@ -3,6 +3,8 @@ extends Control
 @onready var title = $GameTitle
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var options: TextureRect = $Options
+@onready var fade_anim: AnimationPlayer = $FadeLayer/AnimationPlayer
+@onready var fade_rect: ColorRect = $FadeLayer/ColorRect
 
 var full_text := "LAKBAYAN"
 
@@ -11,6 +13,7 @@ func _enter_tree() -> void:
 		Input.set_emulate_mouse_from_touch(true)
 
 func _ready():
+	fade_rect.color = Color(0, 0, 0, 0)
 	main_buttons.visible = true
 	options.visible = false
 	# Ensure UI is visible
@@ -36,9 +39,19 @@ func _apply_wave():
 	title.text = "[center][wave amp=20 freq=3]" + full_text + "[/wave][/center]"
 
 
-func _on_start_game_pressed() -> void:
-	get_tree().change_scene_to_file("res://main_game/main_game.tscn")
+func _on_start_game_pressed():
 
+	start_game()
+
+func start_game():
+
+	Music.fade_out_music(1.0)
+
+	fade_anim.play("fade_out")
+
+	await fade_anim.animation_finished
+
+	get_tree().change_scene_to_file("res://scenes/intro_scene.tscn")
 
 func _on_options_pressed() -> void:
 	main_buttons.visible = false
@@ -49,7 +62,7 @@ func _on_back_pressed() -> void:
 	options.visible = false
 
 func _on_shop_pressed() -> void:
-	get_tree().change_scene_to_file("res://shop/shop.tscn")
+	get_tree().change_scene_to_file("res://scenes/shop.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

@@ -1,14 +1,11 @@
 [gd_scene format=4 uid="uid://l0thg421l6vl"]
 
 [ext_resource type="Texture2D" uid="uid://da8da6exfkqas" path="res://tilemaps/libassetpack-tiled.png" id="1_am6tx"]
+[ext_resource type="Script" uid="uid://x20lbww2mvqw" path="res://scripts/library_map.gd" id="1_gjmsn"]
 [ext_resource type="PackedScene" uid="uid://b7aoe2f7273m4" path="res://player/player.tscn" id="2_1meln"]
 [ext_resource type="Texture2D" uid="uid://chbc4gedppt4d" path="res://assets/magicbook.png" id="3_iv67h"]
 [ext_resource type="Script" uid="uid://crad73863qj5n" path="res://scripts/magic_book.gd" id="3_jt8qp"]
-[ext_resource type="Texture2D" uid="uid://uqe7h5di472s" path="res://assets/Joystick Background.png" id="6_q1ck6"]
-[ext_resource type="Texture2D" uid="uid://brkcr7g8qhsd8" path="res://assets/Joystick Handle.png" id="7_2pxfj"]
-[ext_resource type="Script" uid="uid://f2eeeijpy8jf" path="res://scripts/VirtualJoystick.gd" id="7_yupxk"]
-[ext_resource type="Texture2D" uid="uid://ck1ioijxvgeyd" path="res://assets/UI_Flat_Button02a_4.png" id="9_ffgpy"]
-[ext_resource type="Texture2D" uid="uid://cqug68dmi5pyb" path="res://assets/UI_Flat_Button02a_1.png" id="10_gjmsn"]
+[ext_resource type="PackedScene" uid="uid://bt7i2dmonvdx0" path="res://scenes/mobile_ui.tscn" id="7_2pxfj"]
 [ext_resource type="Script" uid="uid://bynyo343p7cud" path="res://scripts/fade_layer.gd" id="11_fade_layer"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1meln"]
@@ -142,6 +139,21 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ffgpy"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_jt8qp"]
 resource_name = "fade_out"
 tracks/0/type = "value"
@@ -160,10 +172,12 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_742ev"]
 _data = {
 &"RESET": SubResource("Animation_742ev"),
+&"fade_in": SubResource("Animation_ffgpy"),
 &"fade_out": SubResource("Animation_jt8qp")
 }
 
 [node name="LibraryMap" type="Node2D" unique_id=725707176]
+script = ExtResource("1_gjmsn")
 
 [node name="SideFloors" type="TileMapLayer" parent="." unique_id=1103892408]
 position = Vector2(0, 80)
@@ -233,46 +247,7 @@ color = Color(0, 0, 0, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=969224669]
 libraries/ = SubResource("AnimationLibrary_742ev")
 
-[node name="MobileUI" type="CanvasLayer" parent="." unique_id=53027793]
-
-[node name="Joystick" type="Control" parent="MobileUI" unique_id=926838684 groups=["joystick"]]
-layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -104.0
-offset_right = 144.0
-offset_bottom = -24.0
-grow_vertical = 0
-script = ExtResource("7_yupxk")
-
-[node name="Base" type="TextureRect" parent="MobileUI/Joystick" unique_id=1976004009]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -80.0
-offset_right = 40.0
-offset_bottom = -40.0
-grow_vertical = 0
-scale = Vector2(2, 2)
-texture = ExtResource("6_q1ck6")
-expand_mode = 1
-
-[node name="Knob" type="TextureRect" parent="MobileUI/Joystick/Base" unique_id=1632831408]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("7_2pxfj")
-expand_mode = 1
-
-[node name="InteractButton" type="TouchScreenButton" parent="MobileUI" unique_id=997835985]
-position = Vector2(362, 186)
-scale = Vector2(1.5, 1.5)
-texture_normal = ExtResource("9_ffgpy")
-texture_pressed = ExtResource("10_gjmsn")
-action = "interact"
+[node name="MobileUI" parent="." unique_id=1208487421 instance=ExtResource("7_2pxfj")]
 
 [connection signal="body_entered" from="MagicBook" to="MagicBook" method="_on_body_entered"]
 [connection signal="body_exited" from="MagicBook" to="MagicBook" method="_on_body_exited"]

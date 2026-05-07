@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 100
 
 @onready var sprite = $AnimatedSprite2D
 var facing = "front"
