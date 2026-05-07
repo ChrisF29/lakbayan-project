@@ -1,0 +1,140 @@
+[gd_scene format=4 uid="uid://l0thg421l6vl"]
+
+[ext_resource type="Texture2D" uid="uid://da8da6exfkqas" path="res://tilemaps/libassetpack-tiled.png" id="1_am6tx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1meln"]
+texture = ExtResource("1_am6tx")
+texture_region_size = Vector2i(24, 24)
+3:1/size_in_atlas = Vector2i(3, 5)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -52, 28, -52, 28, 60, -28, 60)
+1:1/0 = 0
+2:1/0 = 0
+2:2/0 = 0
+1:2/0 = 0
+1:3/size_in_atlas = Vector2i(2, 2)
+1:3/0 = 0
+2:6/size_in_atlas = Vector2i(3, 2)
+2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -16, 28, -16, 28, 24, -28, 24)
+1:9/size_in_atlas = Vector2i(2, 2)
+1:9/0 = 0
+4:9/0 = 0
+6:9/size_in_atlas = Vector2i(4, 5)
+6:9/0 = 0
+6:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -16, 44, -16, 44, 4, 44, 24, 40, 44, 0, 56, -40, 44, -44, 24)
+11:11/size_in_atlas = Vector2i(1, 4)
+11:11/0 = 0
+11:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -40, 12, -40, 12, 48, -12, 48)
+13:9/size_in_atlas = Vector2i(1, 6)
+13:9/0 = 0
+13:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -72, 8, -72, 8, 72, -12, 72)
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+12:1/size_in_atlas = Vector2i(2, 1)
+12:1/0 = 0
+12:3/size_in_atlas = Vector2i(2, 1)
+12:3/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+17:2/0 = 0
+16:2/0 = 0
+15:2/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+17:4/0 = 0
+16:4/0 = 0
+15:4/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+17:6/0 = 0
+16:6/0 = 0
+15:6/0 = 0
+19:5/size_in_atlas = Vector2i(6, 3)
+19:5/0 = 0
+19:1/size_in_atlas = Vector2i(7, 3)
+19:1/0 = 0
+15:9/size_in_atlas = Vector2i(7, 4)
+15:9/0 = 0
+15:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -32, 80, -32, 80, 44, -80, 44)
+22:9/size_in_atlas = Vector2i(9, 5)
+22:9/0 = 0
+31:1/size_in_atlas = Vector2i(3, 7)
+31:1/0 = 0
+16:15/size_in_atlas = Vector2i(4, 6)
+16:15/0 = 0
+16:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -48, 44, -48, 44, 72, -44, 72)
+11:15/size_in_atlas = Vector2i(4, 6)
+11:15/0 = 0
+11:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -48, 44, -48, 44, 72, -44, 72)
+6:15/size_in_atlas = Vector2i(4, 6)
+6:15/0 = 0
+6:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -48, 44, -48, 44, 72, -44, 72)
+26:5/size_in_atlas = Vector2i(1, 2)
+26:5/0 = 0
+31:8/size_in_atlas = Vector2i(3, 7)
+31:8/0 = 0
+7:6/size_in_atlas = Vector2i(2, 2)
+7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -16, 28, -16, 28, 24, -24, 24)
+7:3/size_in_atlas = Vector2i(2, 2)
+7:3/0 = 0
+28:4/size_in_atlas = Vector2i(2, 3)
+28:4/0 = 0
+28:1/size_in_atlas = Vector2i(2, 3)
+28:1/0 = 0
+7:1/size_in_atlas = Vector2i(2, 2)
+7:1/0 = 0
+10:1/size_in_atlas = Vector2i(2, 2)
+10:1/0 = 0
+12:4/size_in_atlas = Vector2i(2, 2)
+12:4/0 = 0
+10:4/size_in_atlas = Vector2i(2, 2)
+10:4/0 = 0
+52:0/0 = 0
+54:0/size_in_atlas = Vector2i(7, 6)
+54:0/0 = 0
+61:0/0 = 0
+61:1/size_in_atlas = Vector2i(1, 20)
+61:1/0 = 0
+1:15/size_in_atlas = Vector2i(4, 6)
+1:15/0 = 0
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-44, -48, 44, -48, 44, 72, -44, 72)
+
+[sub_resource type="TileSet" id="TileSet_iv67h"]
+physics_layer_0/collision_layer = 16
+physics_layer_0/collision_mask = 0
+sources/1 = SubResource("TileSetAtlasSource_1meln")
+
+[node name="LibraryMap" type="Node2D" unique_id=725707176]
+
+[node name="SideFloors" type="TileMapLayer" parent="." unique_id=1103892408]
+position = Vector2(0, 80)
+tile_map_data = PackedByteArray("AAD//xYAAQAEAAkAAAAAABYAAQAEAAkAAAABABYAAQAEAAkAAAACABYAAQAEAAkAAAADABYAAQAEAAkAAAAEABYAAQAEAAkAAAAFABYAAQAEAAkAAAAGABYAAQAEAAkAAAAHABYAAQAEAAkAAAAIABYAAQAEAAkAAAAJABYAAQAEAAkAAAAKABYAAQAEAAkAAAALABYAAQAEAAkAAAAMABYAAQAEAAkAAAANABYAAQAEAAkAAAAOABYAAQAEAAkAAAAPABYAAQAEAAkAAAAQABYAAQAEAAkAAAARABYAAQAEAAkAAAASABYAAQAEAAkAAAATABYAAQAEAAkAAAAUABYAAQAEAAkAAAAVABYAAQAEAAkAAAAWABYAAQAEAAkAAAAXABYAAQAEAAkAAAAYABYAAQAEAAkAAAAZABYAAQAEAAkAAAAaABYAAQAEAAkAAAAbABYAAQAEAAkAAAAcABYAAQAEAAkAAAAdAAEAAQAEAAkAAAAdAAIAAQAEAAkAAAAdAAMAAQAEAAkAAAAdAAQAAQAEAAkAAAAdAAUAAQAEAAkAAAAdAAYAAQAEAAkAAAAdAAcAAQAEAAkAAAAdAAgAAQAEAAkAAAAdAAkAAQAEAAkAAAAdAAoAAQAEAAkAAAAdAAsAAQAEAAkAAAAdAAwAAQAEAAkAAAAdAA0AAQAEAAkAAAAdAA4AAQAEAAkAAAAdAA8AAQAEAAkAAAAdABAAAQAEAAkAAAAdABEAAQAEAAkAAAAdABIAAQAEAAkAAAAdABMAAQAEAAkAAAAdABQAAQAEAAkAAAAdABUAAQAEAAkAAAAdABYAAQAEAAkAAAA=")
+tile_set = SubResource("TileSet_iv67h")
+
+[node name="Floor" type="TileMapLayer" parent="." unique_id=662018968]
+position = Vector2(0, 80)
+tile_map_data = PackedByteArray("AAAAAAIAAQABAAkAAAADAAIAAQABAAkAAAAGAAIAAQABAAkAAAAJAAIAAQABAAkAAAAMAAIAAQABAAkAAAAPAAIAAQABAAkAAAASAAIAAQABAAkAAAAVAAIAAQABAAkAAAAYAAIAAQABAAkAAAAbAAIAAQABAAkAAAAAAAUAAQABAAkAAAADAAUAAQABAAkAAAAGAAUAAQABAAkAAAAJAAUAAQABAAkAAAAMAAUAAQABAAkAAAAPAAUAAQABAAkAAAASAAUAAQABAAkAAAAVAAUAAQABAAkAAAAYAAUAAQABAAkAAAAbAAUAAQABAAkAAAAbAAgAAQABAAkAAAAYAAgAAQABAAkAAAAVAAgAAQABAAkAAAASAAgAAQABAAkAAAAPAAgAAQABAAkAAAAMAAgAAQABAAkAAAAJAAgAAQABAAkAAAAGAAgAAQABAAkAAAADAAgAAQABAAkAAAAAAAgAAQABAAkAAAAAAAsAAQABAAkAAAADAAsAAQABAAkAAAAAAA4AAQABAAkAAAADAA4AAQABAAkAAAAGAA4AAQABAAkAAAAGAAsAAQABAAkAAAAJAAsAAQABAAkAAAAJAA4AAQABAAkAAAAMAA4AAQABAAkAAAAMAAsAAQABAAkAAAAPAAsAAQABAAkAAAAPAA4AAQABAAkAAAASAA4AAQABAAkAAAASAAsAAQABAAkAAAAVAAsAAQABAAkAAAAVAA4AAQABAAkAAAAYAA4AAQABAAkAAAAYAAsAAQABAAkAAAAbAAsAAQABAAkAAAAbAA4AAQABAAkAAAAbABEAAQABAAkAAAAbABQAAQABAAkAAAAYABQAAQABAAkAAAAYABEAAQABAAkAAAAVABEAAQABAAkAAAAVABQAAQABAAkAAAASABQAAQABAAkAAAASABEAAQABAAkAAAAPABEAAQABAAkAAAAPABQAAQABAAkAAAAMABQAAQABAAkAAAAMABEAAQABAAkAAAAJABEAAQABAAkAAAAJABQAAQABAAkAAAAGABQAAQABAAkAAAAGABEAAQABAAkAAAADABEAAQABAAkAAAADABQAAQABAAkAAAAAABQAAQABAAkAAAAAABEAAQABAAkAAAA=")
+tile_set = SubResource("TileSet_iv67h")
+
+[node name="Walls" type="TileMapLayer" parent="." unique_id=468686676]
+position = Vector2(0, 80)
+tile_map_data = PackedByteArray("AAAEAP3/AQA2AAAAAAAOAP3/AQA2AAAAAAAYAP3/AQA2AAAAAAAeAAgAAQA9AAEAAAA=")
+tile_set = SubResource("TileSet_iv67h")
+
+[node name="Furnitures" type="TileMapLayer" parent="." unique_id=1267014959]
+position = Vector2(0, 80)
+tile_map_data = PackedByteArray("AAAAAAUAAQANAAkAAAAEAP7/AQAGAA8AAAAKAP7/AQABAA8AAAAQAP7/AQALAA8AAAARAAkAAQAPAAkAAAAWAP7/AQAQAA8AAAAbAP//AQADAAEAAAAGAAcAAQATAAEAAAAKAAMAAQAHAAYAAAA=")
+tile_set = SubResource("TileSet_iv67h")
+
+[node name="Decorations" type="TileMapLayer" parent="." unique_id=2079021838]
+position = Vector2(0, 80)
+tile_map_data = PackedByteArray("AAARAAcAAQAMAAEAAAATAAcAAQARAAYAAAA=")
+tile_set = SubResource("TileSet_iv67h")
