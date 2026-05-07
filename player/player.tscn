@@ -386,18 +386,20 @@ animations = [{
 size = Vector2(16, 17.066528)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
-radius = 15.305886
+radius = 12.918045
 
-[node name="Player" type="CharacterBody2D" unique_id=1060294693]
+[node name="Player" type="CharacterBody2D" unique_id=1060294693 groups=["player"]]
 scale = Vector2(2, 2)
+collision_mask = 16
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891183606]
 sprite_frames = SubResource("SpriteFrames_fmu53")
 animation = &"right_move"
-frame_progress = 0.08296811
+frame_progress = 0.15603353
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=723907598]
+position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=410178706]
 position = Vector2(-0.011745453, 7.610634)

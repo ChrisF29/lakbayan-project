@@ -6,6 +6,15 @@ extends CharacterBody2D
 var facing = "front"
 var can_move = true
 var follow_target = null
+var joystick = null
+
+func _ready():
+
+    joystick = get_tree().get_first_node_in_group(
+        "joystick"
+    )
+
+    print(joystick)
 
 func _physics_process(delta):
 
@@ -26,12 +35,18 @@ func _physics_process(delta):
 
     else:
 
-        direction = Input.get_vector(
-            "left",
-            "right",
-            "up",
-            "down"
-        )
+        if joystick and joystick.output != Vector2.ZERO:
+
+            direction = joystick.output
+
+        else:
+
+            direction = Input.get_vector(
+                "left",
+                "right",
+                "up",
+                "down"
+            )
 
     velocity = direction * speed
 
