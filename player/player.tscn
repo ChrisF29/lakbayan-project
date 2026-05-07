@@ -389,12 +389,13 @@ size = Vector2(16, 17.066528)
 radius = 15.305886
 
 [node name="Player" type="CharacterBody2D" unique_id=1060294693]
+scale = Vector2(2, 2)
 script = ExtResource("1_rkbax")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1891183606]
 sprite_frames = SubResource("SpriteFrames_fmu53")
-animation = &"back_move"
-frame_progress = 0.5963228
+animation = &"right_move"
+frame_progress = 0.08296811
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=723907598]
 

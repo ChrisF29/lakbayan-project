@@ -1,25 +1,76 @@
 extends CharacterBody2D
 
+@export var speed = 200
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@onready var sprite = $AnimatedSprite2D
+var facing = "front"
+var can_move = true
+var follow_target = null
 
+func _physics_process(delta):
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+    if !can_move:
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+        velocity = Vector2.ZERO
+        update_animation(Vector2.ZERO)
+        move_and_slide()
+        return
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+    var direction = Vector2.ZERO
 
-	move_and_slide()
+    if follow_target:
+
+        direction = global_position.direction_to(
+            follow_target.global_position
+        )
+
+    else:
+
+        direction = Input.get_vector(
+            "left",
+            "right",
+            "up",
+            "down"
+        )
+
+    velocity = direction * speed
+
+    update_animation(direction)
+
+    move_and_slide()
+
+func update_animation(direction):
+
+    if direction == Vector2.ZERO:
+
+        var idle_anim = facing + "_idle"
+
+        if sprite.animation != idle_anim:
+            sprite.play(idle_anim)
+
+        return
+
+    var move_anim = ""
+
+    if abs(direction.x) > abs(direction.y):
+
+        if direction.x > 0:
+            facing = "right"
+            move_anim = "right_move"
+
+        else:
+            facing = "left"
+            move_anim = "left_move"
+
+    else:
+
+        if direction.y > 0:
+            facing = "front"
+            move_anim = "front_move"
+
+        else:
+            facing = "back"
+            move_anim = "back_move"
+
+    if sprite.animation != move_anim:
+        sprite.play(move_anim)

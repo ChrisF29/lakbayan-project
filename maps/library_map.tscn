@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://l0thg421l6vl"]
 
 [ext_resource type="Texture2D" uid="uid://da8da6exfkqas" path="res://tilemaps/libassetpack-tiled.png" id="1_am6tx"]
+[ext_resource type="PackedScene" uid="uid://b7aoe2f7273m4" path="res://player/player.tscn" id="2_1meln"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1meln"]
 texture = ExtResource("1_am6tx")
@@ -136,5 +137,8 @@ tile_set = SubResource("TileSet_iv67h")
 
 [node name="Decorations" type="TileMapLayer" parent="." unique_id=2079021838]
 position = Vector2(0, 80)
-tile_map_data = PackedByteArray("AAARAAcAAQAMAAEAAAATAAcAAQARAAYAAAA=")
+tile_map_data = PackedByteArray("AAARAAcAAQAMAAEAAAATAAcAAQARAAYAAAAAAAsAAQANAAkAAAA=")
 tile_set = SubResource("TileSet_iv67h")
+
+[node name="Player" parent="." unique_id=1060294693 instance=ExtResource("2_1meln")]
+position = Vector2(94.665924, 188.21936)
