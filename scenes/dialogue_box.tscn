@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dsm6pv2lhxdee"]
+
+[ext_resource type="Script" uid="uid://dwq2ubopvedwm" path="res://scripts/dialogue_box.gd" id="1_rc1id"]
+
+[node name="DialogueBox" type="CanvasLayer" unique_id=1050714096]
+script = ExtResource("1_rc1id")
+
+[node name="DialoguePanel" type="Panel" parent="." unique_id=1990978281]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -90.0
+offset_right = 220.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NameLabel" type="Label" parent="DialoguePanel" unique_id=839737703]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 73.0
+offset_bottom = 23.0
+text = "Timawa:"
+
+[node name="DialogueText" type="RichTextLabel" parent="DialoguePanel" unique_id=315022120]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 440.0
+offset_bottom = 80.0
+fit_content = true
+scroll_active = false
+
+[node name="ContinueText" type="Label" parent="DialoguePanel" unique_id=1673413449]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 76.0
+offset_right = 440.0
+offset_bottom = 89.0
+theme_override_font_sizes/font_size = 9
+text = "Tap to continue..."
