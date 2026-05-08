@@ -2,19 +2,52 @@ extends CharacterBody2D
 
 var player_inside = false
 var dialogue_started = false
+var escorting = false
 
+@export var move_speed = 80
 @onready var interact_button =$"../MobileUI/InteractButton"
-
 @onready var dialogue_box =$"../DialogueBox"
+@onready var sprite = $AnimatedSprite2D
+@onready var exit_point =$"../ExitPoint"
+func _ready():
 
-func _process(delta):
+	sprite.play("idle")
+
+func _physics_process(delta):
+
+	if escorting:
+
+		var direction =global_position.direction_to(exit_point.global_position)
+
+		velocity = direction * move_speed
+
+		move_and_slide()
+
+		if sprite.animation != "move":
+			sprite.play("move")
+
+		sprite.flip_h = direction.x < 0
+
+		if global_position.distance_to(
+			exit_point.global_position
+		) < 10:
+
+			escorting = false
+
+			visible = false
+
+	else:
+
+		velocity = Vector2.ZERO
+
+		if sprite.animation != "idle":
+			sprite.play("idle")
 
 	if player_inside \
 	and !dialogue_started \
 	and Input.is_action_just_pressed("interact"):
 
 		start_dialogue()
-
 func start_dialogue():
 
 	dialogue_started = true
@@ -24,17 +57,17 @@ func start_dialogue():
 	var dialogue = [
 
 """
-Mukang hindi ka taga rito
-dahil kakaiba ang iyong pananamit.
-
+Mukang hindi ka taga rito dahil kakaiba ang iyong pananamit.
+""",
+"""
 Ikaw ba ay naliligaw?
-
+""",
+"""
 Nasa aming barangay ka.
 """,
 
 """
-Dadalhin kita
-sa aming MAGINOO.
+Dadalhin kita sa aming MAGINOO.
 """
 ]
 
@@ -45,7 +78,11 @@ sa aming MAGINOO.
 
 	await dialogue_box.dialogue_finished
 
-	print("Dialogue Finished")
+	begin_escort()
+
+func begin_escort():
+
+	escorting = true
 
 func _on_area_2d_body_entered(body):
 

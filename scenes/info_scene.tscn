@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dnye0s30uc2uf"]
+
+[ext_resource type="Script" uid="uid://do8xoirsj1got" path="res://scripts/info_scene.gd" id="1_qrouy"]
+[ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="2_iu7nu"]
+[ext_resource type="FontFile" uid="uid://cyn6rpo1kgjif" path="res://assets/fonts/Mythical Prince.ttf" id="3_u7l82"]
+[ext_resource type="AudioStream" uid="uid://di466agi47jp6" path="res://music/Begin Your Journey.mp3" id="4_wy30u"]
+
+[sub_resource type="Animation" id="Animation_jkhwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gsw8x"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tij55"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jkhwn"]
+_data = {
+&"RESET": SubResource("Animation_jkhwn"),
+&"fade_in": SubResource("Animation_gsw8x"),
+&"fade_out": SubResource("Animation_tij55")
+}
+
+[node name="InfoScene" type="CanvasLayer" unique_id=860561683]
+script = ExtResource("1_qrouy")
+pages = Array[String](["Ang maginoo o datu ay iisa, sila ang pinakamataas na antas sa lipunang Tagalog at Bisaya.", "Nagiging datu ang isang tao dahil sa katapangan, katalinuhan, pagmamana, o kayamanan.", "Nasusukat ang kanilang yaman sa dami ng alipin, ginto, at lupain.", "Ang ginto ay simbolo ng mataas na katayuan, at ginagamit ang “Gat” o “Lakan” bilang tanda ng paggalang sa mga maginoo."])
+next_scene = "res://maps/pre_colonial_main_map.tscn"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2133513750]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_iu7nu")
+expand_mode = 1
+
+[node name="DialogueText" type="RichTextLabel" parent="." unique_id=2107760189]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -136.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_u7l82")
+theme_override_fonts/bold_font = ExtResource("3_u7l82")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContinueText" type="Label" parent="." unique_id=1347097749]
+offset_left = 312.0
+offset_top = 248.0
+offset_right = 475.0
+offset_bottom = 265.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 3
+theme_override_fonts/font = ExtResource("3_u7l82")
+text = "Tap anywhere to continue..."
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=926393651]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=13625556]
+libraries/ = SubResource("AnimationLibrary_jkhwn")
+
+[node name="BlinkTimer" type="Timer" parent="." unique_id=471423765]
+autostart = true
+
+[node name="IntroSceneMusic" type="AudioStreamPlayer" parent="." unique_id=1376130612]
+stream = ExtResource("4_wy30u")
+autoplay = true
+bus = &"Music"
+
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]

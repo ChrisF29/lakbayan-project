@@ -13,77 +13,87 @@ var current_page = 0
 
 var typing = false
 var full_text = ""
+var typing_token = 0
 
 func _ready():
 
-    visible = false
+	visible = false
 
 func start(speaker_name, dialogue_pages):
 
-    name_label.text = speaker_name
+	name_label.text = speaker_name
 
-    pages = dialogue_pages
+	pages = dialogue_pages
 
-    current_page = 0
+	current_page = 0
 
-    visible = true
+	visible = true
 
-    show_page()
+	show_page()
 
 func show_page():
 
-    full_text = pages[current_page]
+	full_text = pages[current_page]
 
-    dialogue_text.text = ""
+	dialogue_text.text = ""
 
-    continue_text.visible = false
+	continue_text.visible = false
 
-    typing = true
+	typing = true
 
-    type_text()
+	typing_token += 1
+	type_text(typing_token)
 
-func type_text():
+func type_text(token):
 
-    for letter in full_text:
+	for letter in full_text:
 
-        dialogue_text.text += letter
+		if token != typing_token or !typing:
+			return
 
-        await get_tree().create_timer(0.02).timeout
+		dialogue_text.text += letter
 
-    typing = false
+		await get_tree().create_timer(0.02).timeout
 
-    continue_text.visible = true
+	if token != typing_token:
+		return
+
+	typing = false
+
+	continue_text.visible = true
 
 func next_page():
 
-    current_page += 1
+	current_page += 1
 
-    if current_page >= pages.size():
+	if current_page >= pages.size():
 
-        visible = false
+		visible = false
 
-        dialogue_finished.emit()
+		dialogue_finished.emit()
 
-        return
+		return
 
-    show_page()
+	show_page()
 
 func _input(event):
 
-    if !visible:
-        return
+	if !visible:
+		return
 
-    if !event.is_pressed():
-        return
+	if !event.is_pressed():
+		return
 
-    if typing:
+	if typing:
 
-        dialogue_text.text = full_text
+		dialogue_text.text = full_text
 
-        typing = false
+		typing = false
 
-        continue_text.visible = true
+		typing_token += 1
 
-        return
+		continue_text.visible = true
 
-    next_page()
+		return
+
+	next_page()
