@@ -54,5 +54,5 @@ func interact():
     await fade.fade_out()
 
     get_tree().change_scene_to_file(
-        "res://maps/pre_colonial_map.tscn"
+        "res://maps/pre_colonial_map_intro.tscn"
     )

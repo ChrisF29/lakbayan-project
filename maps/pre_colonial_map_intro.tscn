@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bm57820ctfgod"]
 
 [ext_resource type="Texture2D" uid="uid://do85a6r1xbpoe" path="res://tilemaps/mainmaptilemap/[A]Dirt1-Dirt2_pipo.png" id="2_7565t"]
-[ext_resource type="Texture2D" uid="uid://cagi1qchaiymq" path="res://tilemaps/mainmaptilemap/not_animation/[A]Water2_pipo.png" id="2_notck"]
+[ext_resource type="Texture2D" uid="uid://b8k0tahf7pvsk" path="res://tilemaps/mainmaptilemap/[A]Water2_pipo.png" id="2_notck"]
 [ext_resource type="Texture2D" uid="uid://b5j1efnwtouxb" path="res://tilemaps/mainmaptilemap/[A]Grass1-Dirt3_pipo.png" id="4_d8wft"]
 [ext_resource type="Texture2D" uid="uid://dlm6bqxdwmrmc" path="res://tilemaps/mainmaptilemap/[A]Grass1-Grass2_pipo.png" id="6_iciil"]
 [ext_resource type="Texture2D" uid="uid://ccla64a3i4htx" path="res://tilemaps/mainmaptilemap/[A]Grass1-Grass3_pipo.png" id="7_jwhi7"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://bguvq7hekit3s" path="res://tilemaps/mainmaptilemap/[A]Dirt3_pipo.png" id="20_m1x77"]
 [ext_resource type="Texture2D" uid="uid://c0ntori505l6a" path="res://tilemaps/mainmaptilemap/[A]Dirt4_pipo.png" id="21_6grvv"]
 [ext_resource type="Texture2D" uid="uid://cei51cwg5106a" path="res://tilemaps/mainmaptilemap/[A]Flower_pipo.png" id="22_46ddy"]
+[ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="25_6ukdt"]
 [ext_resource type="Script" uid="uid://c620rcxcnfr0q" path="res://scripts/npc/timawa_npc.gd" id="25_ygai7"]
 [ext_resource type="Texture2D" uid="uid://bqeeqlaxs2isi" path="res://npc/MiniVillagerMan.png" id="26_d8wft"]
 [ext_resource type="PackedScene" uid="uid://bt7i2dmonvdx0" path="res://scenes/mobile_ui.tscn" id="28_iciil"]
@@ -170,98 +171,6 @@ texture_region_size = Vector2i(32, 32)
 13:5/0 = 0
 14:5/0 = 0
 15:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-8:6/0 = 0
-9:6/0 = 0
-10:6/0 = 0
-11:6/0 = 0
-12:6/0 = 0
-13:6/0 = 0
-14:6/0 = 0
-15:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-8:7/0 = 0
-9:7/0 = 0
-10:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-13:7/0 = 0
-14:7/0 = 0
-15:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-3:8/0 = 0
-4:8/0 = 0
-5:8/0 = 0
-6:8/0 = 0
-7:8/0 = 0
-8:8/0 = 0
-9:8/0 = 0
-10:8/0 = 0
-11:8/0 = 0
-12:8/0 = 0
-13:8/0 = 0
-14:8/0 = 0
-15:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-3:9/0 = 0
-4:9/0 = 0
-5:9/0 = 0
-6:9/0 = 0
-7:9/0 = 0
-8:9/0 = 0
-9:9/0 = 0
-10:9/0 = 0
-11:9/0 = 0
-12:9/0 = 0
-13:9/0 = 0
-14:9/0 = 0
-15:9/0 = 0
-0:10/0 = 0
-1:10/0 = 0
-2:10/0 = 0
-3:10/0 = 0
-4:10/0 = 0
-5:10/0 = 0
-6:10/0 = 0
-7:10/0 = 0
-8:10/0 = 0
-9:10/0 = 0
-10:10/0 = 0
-11:10/0 = 0
-12:10/0 = 0
-13:10/0 = 0
-0:11/0 = 0
-1:11/0 = 0
-2:11/0 = 0
-3:11/0 = 0
-4:11/0 = 0
-5:11/0 = 0
-6:11/0 = 0
-7:11/0 = 0
-8:11/0 = 0
-9:11/0 = 0
-10:11/0 = 0
-11:11/0 = 0
-12:11/0 = 0
-13:11/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkmub"]
 texture = ExtResource("2_7565t")
@@ -1528,7 +1437,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_47hok")
 sources/4 = SubResource("TileSetAtlasSource_dtdwc")
 sources/6 = SubResource("TileSetAtlasSource_xfbdb")
 sources/7 = SubResource("TileSetAtlasSource_o8jbg")
@@ -1547,6 +1455,7 @@ sources/23 = SubResource("TileSetAtlasSource_d8wft")
 sources/5 = SubResource("TileSetAtlasSource_1eayb")
 sources/1 = SubResource("TileSetAtlasSource_vkmub")
 sources/13 = SubResource("TileSetAtlasSource_g3nqw")
+sources/0 = SubResource("TileSetAtlasSource_47hok")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d8wft"]
 atlas = ExtResource("26_d8wft")
@@ -1635,7 +1544,7 @@ animations = [{
 size = Vector2(43.33484, 39.427036)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d8wft"]
-radius = 40.0
+radius = 48.0
 
 [sub_resource type="Animation" id="Animation_742ev"]
 length = 0.001
@@ -1719,15 +1628,16 @@ tile_set = SubResource("TileSet_tsb35")
 tile_map_data = PackedByteArray("AAABAAEAFwAIABMAAAABAAUAFwAIABMAAAABAAgAFwAIABMAAAAAAAkAFwAIABMAAAAIAAkAFwAIABMAAAANAAQAFwAIABMAAAANAAEAFwAIABMAAAAKAP//FwAIABMAAAAKAAAAFwAIABMAAAAOAAMAFwAIABMAAAAOAAgAFwAHABMAAAAOAAkAFwAHABMAAAAMAAoAFwAHABMAAAALAAgAFwAHABMAAAAOAP//FwAHABMAAAANAAMAFwAHABMAAAAPAAgAFwAHABMAAAAPAAoAFwAHABMAAAAOAAoAFwAHABMAAAD//wQAFwAHABMAAAACAAQAFwAHABMAAAAEAAUAFwAHABMAAAAEAAYAFwAHABMAAAAFAAoAFwAHABMAAAAIAAEAFwAGABMAAAAIAAMAFwAGABMAAAAJAAUAFwAGABMAAAAEAP//FwAGABMAAAARAP7/FwAHABQAAAAQAAMAFwAHABQAAAARAAkAFwAHABQAAAD9/wUAFwAHABQAAAD+/wEAFwAHABQAAAD+//7/FwAHABQAAAACAPz/FwAHABQAAAABAPz/FwAHABQAAAD+/wgAFwAHABQAAAD+//z/FwAIABQAAAD9/wEAFwAIABQAAAD+/wcAFwAIABQAAAAQAAIAFwAIABQAAAA=")
 tile_set = SubResource("TileSet_tsb35")
 
+[node name="Player" parent="." unique_id=1060294693 instance=ExtResource("12_notck")]
+position = Vector2(216, 312)
+
 [node name="TreesLayer" type="TileMapLayer" parent="." unique_id=1809797839]
 tile_map_data = PackedByteArray("AAADAAcAFwAEAAMAAAAKAAcAFwAEAAMAAAALAAIAFwAEAAMAAAAKAP3/FwAEAAMAAAAEAAIAFwAEAAMAAAABAP7/FwAEAAMAAAA=")
 tile_set = SubResource("TileSet_tsb35")
 
-[node name="Player" parent="." unique_id=1060294693 instance=ExtResource("12_notck")]
-position = Vector2(216, 312)
-
 [node name="TimawaNPC" type="CharacterBody2D" parent="." unique_id=2019344761]
 position = Vector2(224, -24)
+collision_layer = 16
 script = ExtResource("25_ygai7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TimawaNPC" unique_id=802317296]
@@ -1735,13 +1645,15 @@ position = Vector2(0, -32)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_667je")
 animation = &"idle"
-frame_progress = 0.47983778
+frame_progress = 0.8816774
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaNPC" unique_id=68472236]
 position = Vector2(0.33187866, 2.0185757)
 shape = SubResource("RectangleShape2D_d8wft")
 
 [node name="Area2D" type="Area2D" parent="TimawaNPC" unique_id=1670898065]
+collision_layer = 17
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaNPC/Area2D" unique_id=740450290]
 shape = SubResource("CircleShape2D_d8wft")
@@ -1765,3 +1677,5 @@ metadata/_edit_use_anchors_ = true
 libraries/ = SubResource("AnimationLibrary_742ev")
 
 [node name="MobileUI" parent="." unique_id=1208487421 instance=ExtResource("28_iciil")]
+
+[node name="DialogueBox" parent="." unique_id=1050714096 instance=ExtResource("25_6ukdt")]
