@@ -77,6 +77,12 @@ func handle_spawn():
 
 func start_timawa_quest_intro():
 
+    if QuestManager.get_state(
+        "timawa_intro_done"
+    ):
+        unlock_first_quest()
+        return
+
     player.can_move = false
 
     var dialogue = [
@@ -94,6 +100,11 @@ Halika sasabihin ko sayo ang mga dapat mong gawin.
     await dialogue_box.dialogue_finished
 
     player.can_move = true
+
+    QuestManager.set_state(
+        "timawa_intro_done",
+        true
+    )
 
     unlock_first_quest()
 

@@ -17,9 +17,21 @@ func _process(delta):
 		
 func exit_house():
 
-    SpawnManager.next_spawn = "DatuHouseExitSpawn"
-
     await fade.fade_out()
+
+    if QuestManager.get_state(
+        "hide_seek_started"
+    ) \
+    and !QuestManager.get_state(
+        "hide_seek_complete"
+    ):
+
+        get_tree().change_scene_to_file(
+            "res://minigames/hide_seek_area.tscn"
+        )
+        return
+
+    SpawnManager.next_spawn = "DatuHouseExitSpawn"
 
     get_tree().change_scene_to_file(
         "res://maps/pre_colonial_main_map.tscn"

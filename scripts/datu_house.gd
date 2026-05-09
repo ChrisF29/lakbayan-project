@@ -6,6 +6,12 @@ extends Node2D
 
 func _ready():
 
+    if QuestManager.get_state(
+        "datu_intro_done"
+    ):
+        player.can_move = true
+        return
+
     player.can_move = false
 
     await get_tree().process_frame
@@ -50,6 +56,11 @@ func finish_datu_intro():
 
     QuestManager.complete_quest(
         "Pumunta sa DATU o MAGINOO."
+    )
+
+    QuestManager.set_state(
+        "datu_intro_done",
+        true
     )
 
     player.can_move = true
