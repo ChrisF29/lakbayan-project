@@ -3806,7 +3806,7 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hqun1")
 animation = &"idle"
-frame_progress = 0.7196028
+frame_progress = 0.8522441
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaQuestNPC" unique_id=1105002800]
 position = Vector2(0.022369385, 2.0185757)
@@ -3973,6 +3973,9 @@ libraries/ = SubResource("AnimationLibrary_g864b")
 
 [node name="DatuHouseExitSpawn" type="Marker2D" parent="." unique_id=1225979383]
 position = Vector2(-320, -232)
+
+[node name="NamingUI" type="CanvasLayer" parent="." unique_id=1736264328]
+visible = false
 
 [connection signal="body_entered" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_exited"]
