@@ -119,6 +119,13 @@ Bilang Babaylan, mahalaga sa amin ang pananampalataya, karunungan, at paglilingk
 		true
 	)
 
+	var naming_ui = get_tree().current_scene.get_node_or_null(
+		"NamingUI"
+	)
+
+	if naming_ui:
+		naming_ui.open()
+
 	QuestManager.set_quest(
 		{
 			"text":

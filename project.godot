@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://ct0lxvm3ste5w"
 Music="*uid://davigiwee8658"
 QuestManager="*uid://c8xccgbpux0cw"
 SpawnManager="*uid://cvcdnohi48rg7"
+PlayerData="*res://globalscripts/player_data.gd"
 
 [display]
 
