@@ -22,6 +22,8 @@ buses/default_bus_layout="uid://ct0lxvm3ste5w"
 [autoload]
 
 Music="*uid://davigiwee8658"
+QuestManager="*uid://c8xccgbpux0cw"
+SpawnManager="*uid://cvcdnohi48rg7"
 
 [display]
 

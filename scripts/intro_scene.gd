@@ -7,6 +7,7 @@ extends CanvasLayer
 var typing = false
 var full_text = ""
 var typing_token = 0
+var transitioning = false
 
 var pages = [
 
@@ -84,6 +85,8 @@ func type_text(token):
 	continue_text.visible = true
 
 func _input(event):
+	if transitioning:
+		return
 
 	if event is InputEventKey:
 
@@ -130,12 +133,23 @@ func next_page():
 	show_page()
 
 func start_game():
+	if transitioning:
+		return
+
+	transitioning = true
 
 	anim.play("fade_out")
 
 	await anim.animation_finished
 
-	get_tree().change_scene_to_file("res://maps/library_map.tscn")
+	if !is_inside_tree():
+		return
+
+	var tree = get_tree()
+	if tree == null:
+		return
+
+	tree.change_scene_to_file("res://maps/library_map.tscn")
 
 func _on_blink_timer_timeout():
 

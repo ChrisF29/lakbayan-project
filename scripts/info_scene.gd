@@ -19,6 +19,7 @@ var current_page = 0
 var typing = false
 var full_text = ""
 var typing_token = 0
+var transitioning = false
 
 func _ready():
 
@@ -72,6 +73,8 @@ func type_text(token):
 		continue_text.visible = true
 
 func _input(event):
+	if transitioning:
+		return
 
 	if !allow_input or pages.is_empty():
 		return
@@ -120,6 +123,10 @@ func next_page():
 	show_page()
 
 func finish_sequence():
+	if transitioning:
+		return
+
+	transitioning = true
 
 	if anim and anim.has_animation(fade_out_anim):
 		anim.play(fade_out_anim)
@@ -128,7 +135,14 @@ func finish_sequence():
 	sequence_finished.emit()
 
 	if next_scene != "":
-		get_tree().change_scene_to_file(next_scene)
+		if !is_inside_tree():
+			return
+
+		var tree = get_tree()
+		if tree == null:
+			return
+
+		tree.change_scene_to_file(next_scene)
 
 func _on_blink_timer_timeout():
 
