@@ -7,6 +7,8 @@ var current_target = null
 var village_intro_done = false
 
 var completed_quests = []
+var unlocked_quests = []
+var quest_states = {}
 
 func set_quest(new_quest, new_target = null):
 
@@ -18,6 +20,22 @@ func set_quest(new_quest, new_target = null):
         current_target = new_target
 
     quest_updated.emit()
+
+func unlock_quest(quest_name):
+
+    if !unlocked_quests.has(
+        quest_name
+    ):
+
+        unlocked_quests.append(
+            quest_name
+        )
+
+func is_unlocked(quest_name):
+
+    return unlocked_quests.has(
+        quest_name
+    )
 
 func complete_quest(quest_name):
 
@@ -41,3 +59,14 @@ func is_completed(quest_name):
     return completed_quests.has(
         quest_name
     )
+
+func set_state(key, value):
+
+    quest_states[key] = value
+
+func get_state(key):
+
+    if quest_states.has(key):
+        return quest_states[key]
+
+    return null

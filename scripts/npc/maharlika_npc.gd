@@ -18,6 +18,13 @@ func _physics_process(delta):
 	if sprite.animation != "idle":
 		sprite.play("idle")
 
+	if player_inside \
+	and !dialogue_started \
+	and Input.is_action_just_pressed(
+		"interact"
+	):
+		start_dialogue()
+
 func _on_area_2d_body_entered(body):
 
 	if body.is_in_group("player"):
@@ -33,3 +40,97 @@ func _on_area_2d_body_exited(body):
 		player_inside = false
 
 		interact_button.visible = false
+
+func start_dialogue():
+
+	if !QuestManager.is_unlocked("MAHARLIKA"):
+
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var locked_dialogue = [
+
+"""
+Hindi pa kita kailangan.
+"""
+		]
+
+		dialogue_box.start(
+			"MAHARLIKA",
+			locked_dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
+		"maharlika_done"
+	):
+		return
+
+	dialogue_started = true
+
+	interact_button.visible = false
+
+	var dialogue = [
+
+"""
+Ako ang Maharlika ng aming barangay. Ako ay mandirigma at tagapagtanggol ng pamayanan sa ilalim ng pamumuno ng datu.
+""",
+
+"""
+Tungkulin naming panatilihin ang kapayapaan, ipagtanggol ang aming lupain, at tumulong sa panahon ng digmaan.
+""",
+
+"""
+Mayroon kaming kalayaan at karangalan sa lipunan, at kami ay iginagalang dahil sa aming katapatan at katapangan.
+""",
+
+"""
+Bilang Maharlika, mahalaga sa amin ang dangal, tapang, at paglilingkod sa aming barangay.
+"""
+	]
+
+	dialogue_box.start(
+		"MAHARLIKA",
+		dialogue
+	)
+
+	await dialogue_box.dialogue_finished
+
+	QuestManager.set_state(
+		"maharlika_done",
+		true
+	)
+
+	QuestManager.complete_quest(
+		"MAHARLIKA"
+	)
+
+	QuestManager.unlock_quest(
+		"TIMAWA"
+	)
+
+	QuestManager.set_quest(
+		{
+			"text":
+			"Pumunta kay TIMAWA",
+
+			"target":
+			get_parent().get_node(
+				"TimawaNPC"
+			)
+		}
+	)
+
+	dialogue_started = false
+
+	if player_inside:
+		interact_button.visible = true

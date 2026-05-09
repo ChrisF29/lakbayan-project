@@ -3795,6 +3795,30 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaNPC/Area2D" unique_id=1846402052]
 shape = SubResource("CircleShape2D_liws2")
 
+[node name="TimawaQuestNPC" type="CharacterBody2D" parent="." unique_id=1485023877]
+visible = false
+position = Vector2(-384, -192)
+collision_layer = 16
+script = ExtResource("39_g864b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TimawaQuestNPC" unique_id=1040376973]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_hqun1")
+animation = &"idle"
+frame_progress = 0.7196028
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaQuestNPC" unique_id=1105002800]
+position = Vector2(0.022369385, 2.0185757)
+shape = SubResource("RectangleShape2D_yvvlm")
+
+[node name="Area2D" type="Area2D" parent="TimawaQuestNPC" unique_id=1692622870]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaQuestNPC/Area2D" unique_id=1744665195]
+shape = SubResource("CircleShape2D_liws2")
+
 [node name="AlipinNPC" type="CharacterBody2D" parent="." unique_id=849341850]
 position = Vector2(-64, 72)
 collision_layer = 16
@@ -3952,6 +3976,8 @@ position = Vector2(-320, -232)
 
 [connection signal="body_entered" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="TimawaQuestNPC/Area2D" to="TimawaQuestNPC" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="TimawaQuestNPC/Area2D" to="TimawaQuestNPC" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="AlipinNPC/Area2D" to="AlipinNPC" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="AlipinNPC/Area2D" to="AlipinNPC" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="MaharlikaNPC/Area2D" to="MaharlikaNPC" method="_on_area_2d_body_entered"]
