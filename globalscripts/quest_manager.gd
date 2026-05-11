@@ -5,6 +5,7 @@ signal quest_updated
 var current_quest = ""
 var current_target = null
 var village_intro_done = false
+var maharlika_arc_started = false
 
 var completed_quests = []
 var unlocked_quests = []

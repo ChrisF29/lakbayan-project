@@ -43,7 +43,15 @@ func reward_player():
 
 	PlayerData.ginto += 1
 
-	$RewardLabel.visible = true
+	QuestManager.set_quest(
+		{
+			"text":
+			"Bumalik sa DATU o MAGINOO.",
+
+			"target":
+			null
+		}
+	)
 
 	await get_tree().create_timer(
 		2.0

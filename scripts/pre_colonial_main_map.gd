@@ -5,6 +5,7 @@ extends Node2D
 @onready var player = $Player
 @onready var datu_exit_spawn =$DatuHouseExitSpawn
 @onready var quest_timawa =$TimawaQuestNPC
+@onready var maharlika_target = get_node_or_null("MaharlikaNPC")
 
 func _ready():
 
@@ -22,7 +23,10 @@ func _ready():
 
         await get_tree().process_frame
 
-        start_timawa_quest_intro()
+        if !QuestManager.get_state(
+            "maharlika_arc_started"
+        ):
+            start_timawa_quest_intro()
 
         print(datu_exit_spawn.global_position)
 
@@ -35,6 +39,8 @@ func _ready():
         await get_tree().process_frame
 
         start_intro()
+
+    update_maharlika_target()
 
 func start_intro():
 
@@ -71,7 +77,10 @@ func handle_spawn():
 
         await get_tree().process_frame
 
-        start_timawa_quest_intro()
+        if !QuestManager.get_state(
+            "maharlika_arc_started"
+        ):
+            start_timawa_quest_intro()
 
         SpawnManager.next_spawn = ""
 
@@ -121,5 +130,35 @@ func unlock_first_quest():
 
             "target":
             $AlipinNPC
+        }
+    )
+
+func update_maharlika_target():
+
+    if maharlika_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "maharlika_arc_started"
+    ):
+        return
+
+    if QuestManager.current_quest != "Kailangan ka ng MAHARLIKA.":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Kailangan ka ng MAHARLIKA.",
+
+            "target":
+            maharlika_target
         }
     )

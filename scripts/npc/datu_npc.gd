@@ -49,6 +49,54 @@ func start_dialogue():
 		return
 
 	if QuestManager.get_state(
+		"hide_seek_complete"
+	) \
+	and !QuestManager.get_state(
+		"maharlika_arc_started"
+	):
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var dialogue = [
+
+"""
+Salamat sa paghahanap sa mga alipin ko.
+"""
+		]
+
+		dialogue_box.start(
+			"DATU",
+			dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"maharlika_arc_started",
+			true
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Kailangan ka ng MAHARLIKA.",
+
+				"target":
+				get_parent().get_node_or_null(
+					"MaharlikaQuestPoint"
+				)
+			}
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
 		"hide_seek_started"
 	):
 		return
