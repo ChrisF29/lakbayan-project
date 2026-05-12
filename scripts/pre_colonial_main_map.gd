@@ -41,6 +41,7 @@ func _ready():
         start_intro()
 
     update_maharlika_target()
+    update_maharlika_return_target()
 
 func start_intro():
 
@@ -157,6 +158,39 @@ func update_maharlika_target():
         {
             "text":
             "Kailangan ka ng MAHARLIKA.",
+
+            "target":
+            maharlika_target
+        }
+    )
+
+func update_maharlika_return_target():
+
+    if maharlika_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "rope_game_complete"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "maharlika_final_done"
+    ):
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        if QuestManager.current_quest == "Pumunta sa MAHARLIKA.":
+            return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta sa MAHARLIKA.",
 
             "target":
             maharlika_target
