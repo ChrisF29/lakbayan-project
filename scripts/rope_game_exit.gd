@@ -11,9 +11,9 @@ func _process(delta):
 	and Input.is_action_just_pressed(
 		"interact"
 	):
-		start_rope_game()
+		start_game()
 
-func start_rope_game():
+func start_game():
 
 	if !QuestManager.get_state(
 		"rope_game_started"

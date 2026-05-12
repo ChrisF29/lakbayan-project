@@ -1,114 +1,119 @@
 extends Control
 
-@onready var progress_bar = $PullBar
-@onready var pull_button = $PullButton
-@onready var dialogue_box = $DialogueBox
-@onready var timer_label = $TimerLabel
-@onready var timer = $Timer
+@onready var rope_bar =$RopeProgressBar
 
-var rope_value = 50.0
-var time_left = 30
-var game_over = false
+@onready var dialogue_box =$DialogueBox
+
+@onready var pull_button =$PullButton
+
+var rope_value = 50
+
+var enemy_force = 10
+
+var player_force = 5
+
+var game_finished = false
+
 var game_started = false
 
 func _ready():
 
-	progress_bar.min_value = 0
-	progress_bar.max_value = 100
-	progress_bar.value = rope_value
+    rope_bar.value = rope_value
 
-	pull_button.pressed.connect(
-		Callable(self, "_on_pull_button_pressed")
-	)
-
-	timer.timeout.connect(
-		Callable(self, "_on_timer_timeout")
-	)
-
-	pull_button.disabled = true
-
-	start_tutorial()
+    start_tutorial()
 
 func start_tutorial():
 
-	var dialogue = [
+    pull_button.disabled = true
+
+    var dialogue = [
 
 """
-Pindutin ang PULL para hilahin ang lubid.
+Hilaan Lubid!
 """,
 
 """
-Panatilihin sa kanan ang marka para manalo.
+Pindutin ang PULL button para hilahin ang lubid.
+""",
+
 """
-	]
+Kapag umabot sa kanan ang lubid,
+ikaw ang mananalo.
+"""
+    ]
 
-	dialogue_box.start(
-		"TUTORIAL",
-		dialogue
-	)
+    dialogue_box.start(
+        "TUTORIAL",
+        dialogue
+    )
 
-	await dialogue_box.dialogue_finished
+    await dialogue_box.dialogue_finished
 
-	pull_button.disabled = false
-	game_started = true
-	update_timer_label()
-	timer.start()
+    pull_button.disabled = false
+
+    game_started = true
 
 func _process(delta):
 
-	if game_over or !game_started:
-		return
+    if game_finished or !game_started:
+        return
 
-	rope_value -= delta * 10.0
-	rope_value = clamp(rope_value, 0.0, 100.0)
+    rope_value -= enemy_force * delta
 
-	progress_bar.value = rope_value
+    rope_value = clamp(
+        rope_value,
+        0,
+        100
+    )
 
-	if rope_value >= 100.0:
-		win_game()
-		return
+    rope_bar.value = rope_value
 
-	if rope_value <= 0.0:
-		lose_game()
+    check_game_result()
 
 func _on_pull_button_pressed():
 
-	if game_over or !game_started:
-		return
+    if game_finished:
+        return
 
-	rope_value += 5.0
-	rope_value = clamp(rope_value, 0.0, 100.0)
+    rope_value += player_force
 
-func _on_timer_timeout():
+func check_game_result():
 
-	if game_over:
-		return
+    if rope_value >= 100:
 
-	time_left -= 1
-	update_timer_label()
+        win_game()
 
-	if time_left <= 0:
-		lose_game()
+    elif rope_value <= 0:
 
-func update_timer_label():
-
-	timer_label.text = "TIME: " + str(time_left)
-
-func lose_game():
-
-	if game_over:
-		return
-
-	game_over = true
-	get_tree().reload_current_scene()
+        lose_game()
 
 func win_game():
 
-	if game_over:
-		return
+    game_finished = true
 
-	game_over = true
+    print("PLAYER WON")
 
-	get_tree().change_scene_to_file(
-		"res://quiz/maharlika_quiz.tscn"
-	)
+    QuestManager.set_state(
+        "rope_game_complete",
+        true
+    )
+
+    await get_tree().create_timer(
+        1.0
+    ).timeout
+
+    get_tree().change_scene_to_file(
+        "res://quiz/maharlika_quiz.tscn"
+    )
+
+func lose_game():
+
+    game_finished = true
+
+    print("PLAYER LOST")
+
+    await get_tree().create_timer(
+        1.0
+    ).timeout
+
+    get_tree().reload_current_scene()

@@ -5502,11 +5502,11 @@ text = "Confirm"
 [node name="RopeGameExitPoint" type="Marker2D" parent="." unique_id=1961603611]
 position = Vector2(176, -488)
 
-[node name="RopeGameExit" type="Area2D" parent="." unique_id=1255540494]
+[node name="RopeGameExitArea" type="Area2D" parent="." unique_id=1255540494]
 position = Vector2(176, -472)
 script = ExtResource("58_rope_game_exit")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeGameExit" unique_id=605909856]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RopeGameExitArea" unique_id=605909856]
 position = Vector2(2.177063, 11.31781)
 shape = SubResource("RectangleShape2D_lhts2")
 
@@ -5525,5 +5525,5 @@ shape = SubResource("RectangleShape2D_lhts2")
 [connection signal="body_entered" from="DatuHouseEntrance" to="DatuHouseEntrance" method="_on_body_entered"]
 [connection signal="body_exited" from="DatuHouseEntrance" to="DatuHouseEntrance" method="_on_body_exited"]
 [connection signal="pressed" from="NamingUI/Panel/VBoxContainer/ConfirmButton" to="NamingUI" method="_on_confirm_button_pressed"]
-[connection signal="body_entered" from="RopeGameExit" to="RopeGameExit" method="_on_body_entered"]
-[connection signal="body_exited" from="RopeGameExit" to="RopeGameExit" method="_on_body_exited"]
+[connection signal="body_entered" from="RopeGameExitArea" to="RopeGameExitArea" method="_on_body_entered"]
+[connection signal="body_exited" from="RopeGameExitArea" to="RopeGameExitArea" method="_on_body_exited"]
