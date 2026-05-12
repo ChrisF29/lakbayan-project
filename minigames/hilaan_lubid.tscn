@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="2_dialogue_box"]
 [ext_resource type="Texture2D" uid="uid://rcbvr2c6xc7e" path="res://assets/orig.png" id="2_l1j6q"]
 [ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="3_hih2x"]
+[ext_resource type="Texture2D" uid="uid://dwkc27s35x1tf" path="res://assets/rope-17098.png" id="3_je3ro"]
 [ext_resource type="Texture2D" uid="uid://cdjdbfdy82giq" path="res://assets/buttonLong_beige.png" id="4_je3ro"]
 [ext_resource type="Texture2D" uid="uid://besv0c1iluoo7" path="res://assets/buttonLong_beige_pressed.png" id="5_6ayg7"]
 
@@ -22,6 +23,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hilaan_lubid")
 
+[node name="RopeProgressBar" type="TextureProgressBar" parent="." unique_id=1204343951]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 2706.6665
+offset_bottom = 282.66663
+scale = Vector2(0.15, 0.15)
+value = 50.0
+
 [node name="BGPhoto" type="TextureRect" parent="." unique_id=1643697202]
 layout_mode = 0
 offset_right = 480.0
@@ -29,28 +39,21 @@ offset_bottom = 272.0
 texture = ExtResource("2_l1j6q")
 expand_mode = 1
 
-[node name="RopeProgressBar" type="ProgressBar" parent="." unique_id=1339195309]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -218.0
-offset_top = -117.5
-offset_right = 214.0
-offset_bottom = -74.5
-grow_horizontal = 2
-grow_vertical = 2
-value = 50.0
-show_percentage = false
+[node name="RopeSprite" type="TextureRect" parent="." unique_id=1181563584]
+layout_mode = 0
+offset_left = 7.999999
+offset_right = 15474.666
+offset_bottom = 2666.6667
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("3_je3ro")
+expand_mode = 1
 
 [node name="Marker" type="ColorRect" parent="." unique_id=1765111423]
 layout_mode = 0
 offset_left = 239.0
 offset_top = 8.0
 offset_right = 241.0
-offset_bottom = 72.0
+offset_bottom = 64.0
 color = Color(1, 0, 0, 1)
 
 [node name="PullButton" type="Button" parent="." unique_id=1576171495]

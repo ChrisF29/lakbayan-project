@@ -46,5 +46,5 @@ offset_top = 76.0
 offset_right = 456.0
 offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("2_fu8b5")
-theme_override_font_sizes/font_size = 9
+theme_override_font_sizes/font_size = 10
 text = "Tap to continue..."
