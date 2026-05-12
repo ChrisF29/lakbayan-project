@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b268j7khu6fn"]
+
+[ext_resource type="Script" uid="uid://cogj83xaavu47" path="res://minigames/scripts/hilaan_lubid.gd" id="1_hilaan_lubid"]
+[ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="2_dialogue_box"]
+
+[node name="HilaanLubid" type="Control" unique_id=522946409]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hilaan_lubid")
+
+[node name="PullBar" type="TextureProgressBar" parent="." unique_id=937947940]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 464.0
+offset_bottom = 56.0
+value = 50.0
+
+[node name="Marker" type="ColorRect" parent="." unique_id=1765111423]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 8.0
+offset_right = 241.0
+offset_bottom = 56.0
+
+[node name="PullButton" type="Button" parent="." unique_id=1997864080]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 72.0
+offset_right = 160.0
+offset_bottom = 112.0
+text = "PULL"
+
+[node name="TimerLabel" type="Label" parent="." unique_id=1770595584]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 80.0
+offset_right = 464.0
+offset_bottom = 104.0
+text = "TIME: 30"
+
+[node name="Timer" type="Timer" parent="." unique_id=1067984122]
+
+[node name="DialogueBox" parent="." unique_id=1087356528 instance=ExtResource("2_dialogue_box")]

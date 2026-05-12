@@ -5,7 +5,7 @@ extends Node2D
 @onready var player = $Player
 @onready var datu_exit_spawn =$DatuHouseExitSpawn
 @onready var quest_timawa =$TimawaQuestNPC
-@onready var maharlika_target = get_node_or_null("MaharlikaNPC")
+@onready var maharlika_target = get_node_or_null("MaharlikaQuestPoint")
 
 func _ready():
 

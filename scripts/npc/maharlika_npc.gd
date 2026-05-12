@@ -43,7 +43,10 @@ func _on_area_2d_body_exited(body):
 
 func start_dialogue():
 
-	if !QuestManager.is_unlocked("MAHARLIKA"):
+	if !QuestManager.is_unlocked("MAHARLIKA") \
+	and !QuestManager.get_state(
+		"maharlika_arc_started"
+	):
 
 		dialogue_started = true
 
@@ -62,6 +65,98 @@ Hindi pa kita kailangan.
 		)
 
 		await dialogue_box.dialogue_finished
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
+		"maharlika_arc_started"
+	) \
+	and !QuestManager.get_state(
+		"rope_game_started"
+	):
+
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var dialogue = [
+
+"""
+Sinabi ng DATU na ikaw ang tumulong para mahanap ang mga nawawalang alipin.
+""",
+
+"""
+Ngayon kailangan kita.
+""",
+
+"""
+May mga mandirigma na gustong sakupin ang aming barangay.
+"""
+		]
+
+		dialogue_box.start(
+			"MAHARLIKA",
+			dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"rope_game_started",
+			true
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Tulungan si MAHARLIKA.",
+
+				"target":
+				$"../RopeGameExitPoint"
+			}
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
+		"rope_game_complete"
+	) \
+	and !QuestManager.get_state(
+		"maharlika_final_done"
+	):
+
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var dialogue = [
+
+"""
+Salamat sa pinakita mong tapang.
+"""
+		]
+
+		dialogue_box.start(
+			"MAHARLIKA",
+			dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"maharlika_final_done",
+			true
+		)
 
 		dialogue_started = false
 

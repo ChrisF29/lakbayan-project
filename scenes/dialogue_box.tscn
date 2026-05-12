@@ -31,7 +31,7 @@ text = "Timawa:"
 [node name="DialogueText" type="RichTextLabel" parent="DialoguePanel" unique_id=315022120]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 24.0
+offset_top = 8.0
 offset_right = 432.0
 offset_bottom = 72.0
 theme_override_fonts/normal_font = ExtResource("2_fu8b5")

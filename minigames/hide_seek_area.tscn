@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cei51cwg5106a" path="res://tilemaps/mainmaptilemap/[A]Flower_pipo.png" id="29_6vwyo"]
 [ext_resource type="Texture2D" uid="uid://cjs06tynlmupv" path="res://tilemaps/mainmaptilemap/[A]Grass1-Dirt1_pipo.png" id="30_doebr"]
 [ext_resource type="Texture2D" uid="uid://c56c2xix2fmxs" path="res://tilemaps/mainmaptilemap/[A]Grass1-Dirt2_pipo.png" id="31_ux3u0"]
+[ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="33_tim5x"]
 [ext_resource type="Script" uid="uid://bynyo343p7cud" path="res://scripts/fade_layer.gd" id="34_33sdx"]
 [ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="35_pxlmd"]
 [ext_resource type="Texture2D" uid="uid://b7i8edk3p1xw3" path="res://npc/IDLE-CHARACTERS.png" id="36_4icmt"]
@@ -3225,8 +3226,11 @@ position = Vector2(240, 144)
 
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1503820045]
 offset_left = 8.0
-offset_right = 64.0
+offset_right = 72.0
 offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("33_tim5x")
+theme_override_font_sizes/font_size = 20
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=139673186]
 layer = 2
