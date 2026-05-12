@@ -6,6 +6,8 @@ extends Control
 
 @onready var answer_c = $Panel/VBoxContainer/AnswerC
 
+@onready var reward_label = $RewardLabel
+
 func _ready():
 
 	answer_a.pressed.connect(
@@ -42,6 +44,7 @@ func correct_answer():
 func reward_player():
 
 	PlayerData.ginto += 1
+	reward_label.visible = true
 
 	QuestManager.set_quest(
 		{

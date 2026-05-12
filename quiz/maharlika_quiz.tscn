@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://m7g2s5q1x2n3"]
+[gd_scene format=3 uid="uid://bgvrm0m4uc37x"]
 
 [ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="1_2yox5"]
-[ext_resource type="Script" path="res://minigames/scripts/maharlika_quiz.gd" id="1_maharlika_quiz"]
+[ext_resource type="Script" uid="uid://l5yiv2fb3c67" path="res://minigames/scripts/maharlika_quiz.gd" id="1_maharlika_quiz"]
 [ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="3_rtn8k"]
 
 [node name="MaharlikaQuiz" type="Control" unique_id=1301972462]

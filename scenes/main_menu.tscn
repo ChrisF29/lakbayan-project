@@ -141,6 +141,7 @@ text = "Start Game
 "
 
 [node name="Shop" type="Button" parent="MainButtons" unique_id=732451910]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
@@ -204,6 +205,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Options" type="TextureRect" parent="." unique_id=812972508]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
