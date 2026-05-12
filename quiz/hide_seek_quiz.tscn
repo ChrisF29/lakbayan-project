@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="1_2yox5"]
 [ext_resource type="Script" uid="uid://c8kqeig6eo3l" path="res://minigames/scripts/hide_seek_quiz.gd" id="1_kp21p"]
+[ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="3_rtn8k"]
 
 [node name="HideSeekQuiz" type="Control" unique_id=743579432]
 layout_mode = 3
@@ -43,31 +44,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -96.0
-offset_right = 200.0
-offset_bottom = 96.0
+offset_left = -208.0
+offset_top = -107.0
+offset_right = 208.0
+offset_bottom = 109.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="QuestionLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1609790502]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rtn8k")
 text = "Ano ang ginagamit bilang tanda ng paggalang sa mga maginoo o datu?"
 autowrap_mode = 3
 
 [node name="AnswerA" type="Button" parent="Panel/VBoxContainer" unique_id=1349948169]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
 text = "Pagmamano"
 
 [node name="AnswerB" type="Button" parent="Panel/VBoxContainer" unique_id=1066821754]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Pag gamit ng \"Gat o Lakan\""
+theme_override_fonts/font = ExtResource("3_rtn8k")
+text = "Pag gamit ng \"Gat\" o \"Lakan\""
 
 [node name="AnswerC" type="Button" parent="Panel/VBoxContainer" unique_id=882035034]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
 text = "Pag saludo"
 
 [node name="RewardLabel" type="Label" parent="." unique_id=330656371]
