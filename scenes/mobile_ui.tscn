@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brkcr7g8qhsd8" path="res://assets/Joystick Handle.png" id="3_ri1lb"]
 [ext_resource type="Texture2D" uid="uid://ck1ioijxvgeyd" path="res://assets/UI_Flat_Button02a_4.png" id="4_5d2um"]
 [ext_resource type="Texture2D" uid="uid://cqug68dmi5pyb" path="res://assets/UI_Flat_Button02a_1.png" id="5_rphdq"]
+[ext_resource type="AudioStream" uid="uid://5eftl7nl31bo" path="res://sfx/switch_006.ogg" id="6_uqj2s"]
 
 [node name="MobileUI" type="CanvasLayer" unique_id=1208487421]
 
@@ -47,3 +48,9 @@ scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("4_5d2um")
 texture_pressed = ExtResource("5_rphdq")
 action = "interact"
+
+[node name="InteractButtonClickSFX" type="AudioStreamPlayer" parent="." unique_id=918512636]
+stream = ExtResource("6_uqj2s")
+bus = &"SFX"
+
+[connection signal="pressed" from="InteractButton" to="InteractButtonClickSFX" method="play"]

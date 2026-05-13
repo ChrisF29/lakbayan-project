@@ -8,12 +8,20 @@ signal dialogue_finished
 
 @onready var continue_text =$DialoguePanel/ContinueText
 
+@onready var type_sfx: AudioStreamPlayer = $DialoguePanel/TypeSFX
+
+const TYPE_SFX_INTERVAL_MS := 45
+const TYPE_SFX_PITCH_MIN := 0.95
+const TYPE_SFX_PITCH_MAX := 1.05
+
 var pages = []
 var current_page = 0
 
 var typing = false
 var full_text = ""
 var typing_token = 0
+
+var _last_type_sfx_ms := 0
 
 func _ready():
 
@@ -52,6 +60,7 @@ func type_text(token):
 			return
 
 		dialogue_text.text += letter
+		_play_type_sfx(letter)
 
 		await get_tree().create_timer(0.02).timeout
 
@@ -75,6 +84,25 @@ func next_page():
 		return
 
 	show_page()
+
+func _play_type_sfx(letter: String) -> void:
+	if type_sfx == null:
+		return
+
+	if letter == " " or letter == "\n" or letter == "\t":
+		return
+
+	var now_ms := Time.get_ticks_msec()
+	if now_ms - _last_type_sfx_ms < TYPE_SFX_INTERVAL_MS:
+		return
+
+	_last_type_sfx_ms = now_ms
+	if TYPE_SFX_PITCH_MIN != TYPE_SFX_PITCH_MAX:
+		type_sfx.pitch_scale = randf_range(TYPE_SFX_PITCH_MIN, TYPE_SFX_PITCH_MAX)
+	else:
+		type_sfx.pitch_scale = 1.0
+
+	type_sfx.play()
 
 func _input(event):
 

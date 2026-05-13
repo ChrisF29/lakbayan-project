@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwq2ubopvedwm" path="res://scripts/dialogue_box.gd" id="1_rc1id"]
 [ext_resource type="FontFile" uid="uid://cyn6rpo1kgjif" path="res://assets/fonts/Mythical Prince.ttf" id="2_fu8b5"]
+[ext_resource type="AudioStream" uid="uid://c0nk1q4ydlepx" path="res://sfx/click_001.ogg" id="3_tm68y"]
 
 [node name="DialogueBox" type="CanvasLayer" unique_id=1050714096]
 script = ExtResource("1_rc1id")
@@ -48,3 +49,8 @@ offset_bottom = 89.0
 theme_override_fonts/font = ExtResource("2_fu8b5")
 theme_override_font_sizes/font_size = 10
 text = "Tap to continue..."
+
+[node name="TypeSFX" type="AudioStreamPlayer" parent="DialoguePanel" unique_id=2058439470]
+stream = ExtResource("3_tm68y")
+volume_db = -6.0
+bus = &"SFX"
