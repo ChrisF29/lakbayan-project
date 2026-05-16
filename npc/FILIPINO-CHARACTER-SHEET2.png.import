@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dafwkyyma804"
-path="res://.godot/imported/MiniOldWoman.png-bd0691bbaa55895e779bb24ef77e1541.ctex"
+uid="uid://b4oy63fd8hnm5"
+path="res://.godot/imported/FILIPINO-CHARACTER-SHEET2.png-33a049efbd0c15e36f3ca6ef81cceb2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/MiniOldWoman.png"
-dest_files=["res://.godot/imported/MiniOldWoman.png-bd0691bbaa55895e779bb24ef77e1541.ctex"]
+source_file="res://npc/FILIPINO-CHARACTER-SHEET2.png"
+dest_files=["res://.godot/imported/FILIPINO-CHARACTER-SHEET2.png-33a049efbd0c15e36f3ca6ef81cceb2c.ctex"]
 
 [params]
 

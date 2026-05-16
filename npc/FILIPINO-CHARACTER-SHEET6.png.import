@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4i0tpl2jrs4n"
-path="res://.godot/imported/MiniPrincess.png-305ab867205a7ab0693d09d715e9fe1c.ctex"
+uid="uid://b7q07pljmuo27"
+path="res://.godot/imported/FILIPINO-CHARACTER-SHEET6.png-6223575396fb4d7a1ba10e877c3f77c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/MiniPrincess.png"
-dest_files=["res://.godot/imported/MiniPrincess.png-305ab867205a7ab0693d09d715e9fe1c.ctex"]
+source_file="res://npc/FILIPINO-CHARACTER-SHEET6.png"
+dest_files=["res://.godot/imported/FILIPINO-CHARACTER-SHEET6.png-6223575396fb4d7a1ba10e877c3f77c7.ctex"]
 
 [params]
 

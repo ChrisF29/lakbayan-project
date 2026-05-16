@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yv38ae6wy3gw"
-path="res://.godot/imported/MiniPeasant.png-cf8e167bfa5f32fadc56bfd498667cc4.ctex"
+uid="uid://b6lrqh80aq6xt"
+path="res://.godot/imported/FILIPINO-CHARACTER-SHEET4.png-61c9d2b6694508b9046841d2bce0ef71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/MiniPeasant.png"
-dest_files=["res://.godot/imported/MiniPeasant.png-cf8e167bfa5f32fadc56bfd498667cc4.ctex"]
+source_file="res://npc/FILIPINO-CHARACTER-SHEET4.png"
+dest_files=["res://.godot/imported/FILIPINO-CHARACTER-SHEET4.png-61c9d2b6694508b9046841d2bce0ef71.ctex"]
 
 [params]
 

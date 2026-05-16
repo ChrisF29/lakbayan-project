@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqeeqlaxs2isi"
-path="res://.godot/imported/MiniVillagerMan.png-3edf233e9f88b49eb780118f2157dfb7.ctex"
+uid="uid://bw6bsce22f8yb"
+path="res://.godot/imported/FILIPINO-CHARACTER-SHEET3.png-ad0b4e319db899c440a3535b04a44df2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://npc/MiniVillagerMan.png"
-dest_files=["res://.godot/imported/MiniVillagerMan.png-3edf233e9f88b49eb780118f2157dfb7.ctex"]
+source_file="res://npc/FILIPINO-CHARACTER-SHEET3.png"
+dest_files=["res://.godot/imported/FILIPINO-CHARACTER-SHEET3.png-ad0b4e319db899c440a3535b04a44df2.ctex"]
 
 [params]
 

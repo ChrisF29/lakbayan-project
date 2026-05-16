@@ -1,26 +1,53 @@
 extends Area2D
 
-var player_inside = false
+var transitioning = false
+var quest_active = false
 
-@onready var interact_button = $"../MobileUI/InteractButton"
 @onready var fade = $"../FadeLayer"
+@onready var blocker_shape = get_node_or_null(
+	"QuestBlocker/CollisionShape2D"
+)
 
-func _process(delta):
+func _ready():
 
-	if player_inside \
-	and Input.is_action_just_pressed(
-		"interact"
-	):
-		start_game()
+	update_blocker()
+	set_process(!quest_active)
+
+func _process(_delta):
+
+	var active = QuestManager.get_state(
+		"rope_game_started"
+	) == true
+
+	if active == quest_active:
+		return
+
+	quest_active = active
+	update_blocker()
+
+	if quest_active:
+		set_process(false)
+
+func update_blocker():
+
+	quest_active = QuestManager.get_state(
+		"rope_game_started"
+	) == true
+
+	if blocker_shape != null:
+		blocker_shape.disabled = quest_active
 
 func start_game():
+
+	if transitioning:
+		return
 
 	if !QuestManager.get_state(
 		"rope_game_started"
 	):
 		return
 
-	interact_button.visible = false
+	transitioning = true
 
 	await fade.fade_out()
 
@@ -31,18 +58,4 @@ func start_game():
 func _on_body_entered(body):
 
 	if body.is_in_group("player"):
-
-		player_inside = true
-
-		if QuestManager.get_state(
-			"rope_game_started"
-		):
-			interact_button.visible = true
-
-func _on_body_exited(body):
-
-	if body.is_in_group("player"):
-
-		player_inside = false
-
-		interact_button.visible = false
+		start_game()

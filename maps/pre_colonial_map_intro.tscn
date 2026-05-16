@@ -19,8 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://csyqqoonjxsmp" path="res://tilemaps/mainmaptilemap/[A]Dirt2_pipo.png" id="19_0r1j4"]
 [ext_resource type="Texture2D" uid="uid://bguvq7hekit3s" path="res://tilemaps/mainmaptilemap/[A]Dirt3_pipo.png" id="20_m1x77"]
 [ext_resource type="Texture2D" uid="uid://c0ntori505l6a" path="res://tilemaps/mainmaptilemap/[A]Dirt4_pipo.png" id="21_6grvv"]
-[ext_resource type="Texture2D" uid="uid://d2q8eaciis84v" path="res://npc/MiniWorker.png" id="21_d8wft"]
-[ext_resource type="Texture2D" uid="uid://b7i8edk3p1xw3" path="res://npc/IDLE-CHARACTERS.png" id="21_ygai7"]
+[ext_resource type="Texture2D" uid="uid://b7q07pljmuo27" path="res://npc/FILIPINO-CHARACTER-SHEET6.png" id="21_d8wft"]
 [ext_resource type="Texture2D" uid="uid://cei51cwg5106a" path="res://tilemaps/mainmaptilemap/[A]Flower_pipo.png" id="22_46ddy"]
 [ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="25_6ukdt"]
 [ext_resource type="Script" uid="uid://c620rcxcnfr0q" path="res://scripts/npc/timawa_npc.gd" id="25_ygai7"]
@@ -1460,60 +1459,68 @@ sources/13 = SubResource("TileSetAtlasSource_p4n2t")
 sources/0 = SubResource("TileSetAtlasSource_ygai7")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygai7"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(0, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iciil"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(32, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwhi7"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(64, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4n2t"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(96, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_667je"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(128, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b2sjp"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(160, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4wsb"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(192, 160, 32, 32)
+atlas = ExtResource("21_d8wft")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5pryf"]
-atlas = ExtResource("21_ygai7")
-region = Rect2(224, 160, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g3nqw"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(0, 32, 32, 32)
+region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_50rkp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l22k8"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(32, 32, 32, 32)
+region = Rect2(0, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ac8ir"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_htfss"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(64, 32, 32, 32)
+region = Rect2(32, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ox1yu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4on5f"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(96, 32, 32, 32)
+region = Rect2(64, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dh576"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q301e"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(128, 32, 32, 32)
+region = Rect2(96, 224, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxjcm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4yyj8"]
 atlas = ExtResource("21_d8wft")
-region = Rect2(160, 32, 32, 32)
+region = Rect2(128, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0fpq"]
+atlas = ExtResource("21_d8wft")
+region = Rect2(160, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0r1j4"]
+atlas = ExtResource("21_d8wft")
+region = Rect2(192, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1x77"]
+atlas = ExtResource("21_d8wft")
+region = Rect2(224, 224, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_667je"]
 animations = [{
@@ -1548,22 +1555,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g3nqw")
+"texture": SubResource("AtlasTexture_l22k8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_50rkp")
+"texture": SubResource("AtlasTexture_htfss")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ac8ir")
+"texture": SubResource("AtlasTexture_4on5f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ox1yu")
+"texture": SubResource("AtlasTexture_q301e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dh576")
+"texture": SubResource("AtlasTexture_4yyj8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kxjcm")
+"texture": SubResource("AtlasTexture_p0fpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0r1j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1x77")
 }],
 "loop": true,
 "name": &"move",
@@ -1670,8 +1683,8 @@ script = ExtResource("25_ygai7")
 position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_667je")
-animation = &"idle"
-frame_progress = 0.9238804
+animation = &"move"
+frame_progress = 0.9714436
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaNPC" unique_id=68472236]
 position = Vector2(0.022369385, 2.0185757)
