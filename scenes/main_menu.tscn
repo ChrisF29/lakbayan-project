@@ -226,9 +226,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -58.0
-offset_top = 16.0
+offset_top = 11.0
 offset_right = 58.0
-offset_bottom = 42.0
+offset_bottom = 34.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.98039216, 0.8039216, 0.7254902, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -248,9 +248,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -28.0
-offset_top = -20.0
+offset_top = -30.0
 offset_right = 28.0
-offset_bottom = -2.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.98039216, 0.8039216, 0.7254902, 1)
@@ -265,28 +265,28 @@ vertical_alignment = 1
 
 [node name="Back" type="Button" parent="Options" unique_id=1221299245]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 88.0
-offset_right = 112.0
-offset_bottom = 112.0
+offset_left = 48.0
+offset_top = 100.0
+offset_right = 104.0
+offset_bottom = 116.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
 theme_override_colors/font_focus_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
 theme_override_colors/font_pressed_color = Color(0.45882353, 0.21176471, 0.08235294, 1)
 theme_override_colors/font_hover_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("7_jk1qb")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 7
 theme_override_styles/normal = SubResource("StyleBoxTexture_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tbmy8")
 text = "Back"
 
-[node name="AudioControl" type="HSlider" parent="Options" unique_id=1456712263]
+[node name="AudioControlMusic" type="HSlider" parent="Options" unique_id=1456712263]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 66.0
+offset_top = 55.0
 offset_right = 153.99998
-offset_bottom = 82.0
+offset_bottom = 71.0
 scale = Vector2(0.8, 0.8)
 theme_override_styles/slider = SubResource("StyleBoxLine_5dd4i")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_flqon")
@@ -296,6 +296,44 @@ step = 0.05
 value = 1.0
 script = ExtResource("12_rcqid")
 audio_bus_name = "Music"
+
+[node name="SFXVolumeTitle" type="Label" parent="Options" unique_id=381214456]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_right = 28.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.98039216, 0.8039216, 0.7254902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("7_jk1qb")
+theme_override_font_sizes/font_size = 10
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioControlSFX" type="HSlider" parent="Options" unique_id=734049489]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 85.0
+offset_right = 153.99998
+offset_bottom = 101.0
+scale = Vector2(0.8, 0.8)
+theme_override_styles/slider = SubResource("StyleBoxLine_5dd4i")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_flqon")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_flqon")
+max_value = 1.0
+step = 0.05
+value = 1.0
+script = ExtResource("12_rcqid")
+audio_bus_name = "SFX"
 
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="." unique_id=1195897273]
 stream = ExtResource("12_flqon")
@@ -322,4 +360,5 @@ libraries/ = SubResource("AnimationLibrary_rcqid")
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]
-[connection signal="value_changed" from="Options/AudioControl" to="Options/AudioControl" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioControlMusic" to="Options/AudioControlMusic" method="_on_value_changed"]
+[connection signal="value_changed" from="Options/AudioControlSFX" to="Options/AudioControlSFX" method="_on_value_changed"]
