@@ -5097,7 +5097,7 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_hqun1")
 animation = &"idle"
-frame_progress = 0.47359118
+frame_progress = 0.12286431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TimawaNPC" unique_id=84200745]
 position = Vector2(0.022369385, 2.0185757)
