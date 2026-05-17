@@ -6,8 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://ck1ioijxvgeyd" path="res://assets/UI_Flat_Button02a_4.png" id="4_5d2um"]
 [ext_resource type="Texture2D" uid="uid://cqug68dmi5pyb" path="res://assets/UI_Flat_Button02a_1.png" id="5_rphdq"]
 [ext_resource type="AudioStream" uid="uid://5eftl7nl31bo" path="res://sfx/switch_006.ogg" id="6_uqj2s"]
+[ext_resource type="Texture2D" uid="uid://d3m1ppxu8kryo" path="res://assets/UI_Flat_IconStripe01a.png" id="7_ri1lb"]
+[ext_resource type="Script" uid="uid://b5qswy3bvw71p" path="res://scripts/mobile_ui.gd" id="8_mobile_ui"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2um"]
+texture = ExtResource("7_ri1lb")
 
 [node name="MobileUI" type="CanvasLayer" unique_id=1208487421]
+process_mode = 3
+script = ExtResource("8_mobile_ui")
 
 [node name="Joystick" type="Control" parent="." unique_id=644222329 groups=["joystick"]]
 layout_mode = 3
@@ -52,5 +59,65 @@ action = "interact"
 [node name="InteractButtonClickSFX" type="AudioStreamPlayer" parent="." unique_id=918512636]
 stream = ExtResource("6_uqj2s")
 bus = &"SFX"
+
+[node name="PauseMenuButton" type="Button" parent="." unique_id=985171296]
+offset_left = 440.0
+offset_top = 8.0
+offset_right = 472.0
+offset_bottom = 40.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_5d2um")
+icon_alignment = 1
+
+[node name="TransparentOverlay" type="ColorRect" parent="." unique_id=1848986065]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="GamePaused" type="Panel" parent="." unique_id=2116044822]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -70.0
+offset_right = 110.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuTitle" type="Label" parent="GamePaused" unique_id=681647720]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 60.0
+offset_bottom = 28.0
+grow_horizontal = 2
+text = "Game Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="GamePaused" unique_id=451959546]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 16.0
+offset_right = 50.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESUME"
 
 [connection signal="pressed" from="InteractButton" to="InteractButtonClickSFX" method="play"]

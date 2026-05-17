@@ -140,8 +140,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_tbmy8")
 text = "Start Game
 "
 
-[node name="Shop" type="Button" parent="MainButtons" unique_id=732451910]
-visible = false
+[node name="LoadGame" type="Button" parent="MainButtons" unique_id=732451910]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
@@ -153,7 +152,7 @@ theme_override_font_sizes/font_size = 13
 theme_override_styles/normal = SubResource("StyleBoxTexture_tbmy8")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_jk1qb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_tbmy8")
-text = "Shop"
+text = "Load Game"
 
 [node name="Options" type="Button" parent="MainButtons" unique_id=683342189]
 layout_mode = 2
@@ -356,7 +355,7 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_rcqid")
 
 [connection signal="pressed" from="MainButtons/StartGame" to="." method="_on_start_game_pressed"]
-[connection signal="pressed" from="MainButtons/Shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="MainButtons/LoadGame" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MainButtons/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_back_pressed"]

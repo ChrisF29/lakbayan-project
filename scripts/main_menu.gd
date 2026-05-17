@@ -61,8 +61,10 @@ func _on_back_pressed() -> void:
 	main_buttons.visible = true
 	options.visible = false
 
-func _on_shop_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/shop.tscn")
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_load_game_pressed() -> void:
+	pass # Replace with function body.
