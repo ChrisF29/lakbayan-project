@@ -3,7 +3,27 @@ extends Area2D
 var player_inside = false
 var found = false
 
+@onready var sprite = $AnimatedSprite2D
 @onready var interact_button = get_node_or_null("../MobileUI/InteractButton")
+
+func _ready():
+	if sprite:
+		sprite.play("default")
+
+func set_active(is_active: bool):
+
+	found = false
+	player_inside = false
+	visible = is_active
+	monitoring = is_active
+	monitorable = is_active
+	set_process(is_active)
+
+	if interact_button:
+		interact_button.visible = false
+
+	if sprite and is_active:
+		sprite.play("default")
 
 func _process(delta):
 

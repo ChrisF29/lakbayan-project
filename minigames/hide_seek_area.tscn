@@ -1660,6 +1660,27 @@ sources/28 = SubResource("TileSetAtlasSource_khplb")
 sources/29 = SubResource("TileSetAtlasSource_nd21s")
 sources/30 = SubResource("TileSetAtlasSource_vkaa1")
 
+[sub_resource type="Shader" id="Shader_countdown"]
+code = "shader_type canvas_item;
+
+uniform vec2 hole_center_px = vec2(0.0);
+uniform float hole_radius_px = 72.0;
+uniform float edge_px = 12.0;
+
+void fragment() {
+    vec2 screen_px = SCREEN_UV / SCREEN_PIXEL_SIZE;
+    float dist = distance(screen_px, hole_center_px);
+    float alpha = smoothstep(hole_radius_px - edge_px, hole_radius_px, dist);
+    COLOR = vec4(0.0, 0.0, 0.0, alpha);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_countdown"]
+shader = SubResource("Shader_countdown")
+shader_parameter/hole_center_px = Vector2(0, 0)
+shader_parameter/hole_radius_px = 72.0
+shader_parameter/edge_px = 12.0
+
 [sub_resource type="Animation" id="Animation_742ev"]
 length = 0.001
 tracks/0/type = "value"
@@ -4822,10 +4843,39 @@ position = Vector2(240, 144)
 [node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1503820045]
 offset_left = 8.0
 offset_right = 72.0
-offset_bottom = 40.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("33_tim5x")
 theme_override_font_sizes/font_size = 20
+
+[node name="CountdownLayer" type="CanvasLayer" parent="." unique_id=2144593951]
+layer = 5
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CountdownLayer" unique_id=1868059814]
+material = SubResource("ShaderMaterial_countdown")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CountdownLabel" type="Label" parent="CountdownLayer" unique_id=1033715596]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.0
+offset_right = 64.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("33_tim5x")
+theme_override_font_sizes/font_size = 64
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=139673186]
 layer = 2
@@ -4843,7 +4893,21 @@ metadata/_edit_use_anchors_ = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer" unique_id=794446410]
 libraries/ = SubResource("AnimationLibrary_pxlmd")
 
-[node name="HiddenAlipin1" type="Area2D" parent="." unique_id=305090740]
+[node name="AlipinSpawns" type="Node2D" parent="." unique_id=1696893313]
+
+[node name="Spawn1" type="Marker2D" parent="AlipinSpawns" unique_id=607838615 groups=["alipin_spawn"]]
+position = Vector2(-8, -24)
+
+[node name="Spawn2" type="Marker2D" parent="AlipinSpawns" unique_id=1038412660 groups=["alipin_spawn"]]
+position = Vector2(384, -56)
+
+[node name="Spawn3" type="Marker2D" parent="AlipinSpawns" unique_id=138889824 groups=["alipin_spawn"]]
+position = Vector2(384, 264)
+
+[node name="Spawn4" type="Marker2D" parent="AlipinSpawns" unique_id=15182317 groups=["alipin_spawn"]]
+position = Vector2(496, 136)
+
+[node name="HiddenAlipin1" type="Area2D" parent="." unique_id=305090740 groups=["hidden_alipin"]]
 position = Vector2(-8, -24)
 script = ExtResource("36_5x0jb")
 
@@ -4854,49 +4918,7 @@ sprite_frames = SubResource("SpriteFrames_pxlmd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin1" unique_id=167353562]
 shape = SubResource("CircleShape2D_4icmt")
 
-[node name="HiddenAlipin2" type="Area2D" parent="." unique_id=57180]
-position = Vector2(384, -56)
-script = ExtResource("36_5x0jb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin2" unique_id=1699261489]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_pxlmd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin2" unique_id=96081754]
-shape = SubResource("CircleShape2D_4icmt")
-
-[node name="HiddenAlipin3" type="Area2D" parent="." unique_id=1696288005]
-position = Vector2(384, 264)
-script = ExtResource("36_5x0jb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin3" unique_id=1389828546]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_pxlmd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin3" unique_id=938109249]
-shape = SubResource("CircleShape2D_4icmt")
-
-[node name="HiddenAlipin4" type="Area2D" parent="." unique_id=1436511838]
-position = Vector2(496, 136)
-script = ExtResource("36_5x0jb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin4" unique_id=845275461]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_pxlmd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin4" unique_id=1146977072]
-shape = SubResource("CircleShape2D_4icmt")
-
-[node name="HiddenAlipin5" type="Area2D" parent="." unique_id=1230093936]
-position = Vector2(152, -80)
-script = ExtResource("36_5x0jb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin5" unique_id=566094608]
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_pxlmd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin5" unique_id=1864552734]
-shape = SubResource("CircleShape2D_4icmt")
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1053521951]
 
 [node name="MobileUI" parent="." unique_id=1208487421 instance=ExtResource("38_v3nsv")]
 
@@ -4916,11 +4938,3 @@ tile_set = SubResource("TileSet_wyt1r")
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HiddenAlipin1" to="HiddenAlipin1" method="_on_body_entered"]
 [connection signal="body_exited" from="HiddenAlipin1" to="HiddenAlipin1" method="_on_body_exited"]
-[connection signal="body_entered" from="HiddenAlipin2" to="HiddenAlipin2" method="_on_body_entered"]
-[connection signal="body_exited" from="HiddenAlipin2" to="HiddenAlipin2" method="_on_body_exited"]
-[connection signal="body_entered" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_entered"]
-[connection signal="body_exited" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_exited"]
-[connection signal="body_entered" from="HiddenAlipin4" to="HiddenAlipin4" method="_on_body_entered"]
-[connection signal="body_exited" from="HiddenAlipin4" to="HiddenAlipin4" method="_on_body_exited"]
-[connection signal="body_entered" from="HiddenAlipin5" to="HiddenAlipin5" method="_on_body_entered"]
-[connection signal="body_exited" from="HiddenAlipin5" to="HiddenAlipin5" method="_on_body_exited"]
