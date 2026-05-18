@@ -40,6 +40,7 @@
 [ext_resource type="Script" uid="uid://8ydhsybol06r" path="res://minigames/scripts/hidden_alipin_1.gd" id="36_5x0jb"]
 [ext_resource type="PackedScene" uid="uid://bt7i2dmonvdx0" path="res://scenes/mobile_ui.tscn" id="38_v3nsv"]
 [ext_resource type="Texture2D" uid="uid://b8k0tahf7pvsk" path="res://tilemaps/mainmaptilemap/[A]Water2_pipo.png" id="39_o4q3f"]
+[ext_resource type="Texture2D" uid="uid://w10q4nwm6hi6" path="res://assets/TX Plant.png" id="40_eisjr"]
 [ext_resource type="Texture2D" uid="uid://dtd53lo1lkhfb" path="res://tilemaps/mainmaptilemap/[A]Wall-Up1_pipo.png" id="40_tim5x"]
 [ext_resource type="Texture2D" uid="uid://ce8uwovbklywq" path="res://tilemaps/mainmaptilemap/[A]Wall-Up2_pipo.png" id="41_eisjr"]
 [ext_resource type="Texture2D" uid="uid://c1ktd2debh5wx" path="res://tilemaps/addwork.png" id="42_vguyb"]
@@ -2383,6 +2384,84 @@ texture_region_size = Vector2i(32, 32)
 5:5/0 = 0
 6:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqdlg"]
+texture = ExtResource("40_eisjr")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+2:4/0 = 0
+6:4/0 = 0
+10:4/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+1:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+7:7/0 = 0
+9:7/0 = 0
+11:7/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwcpn"]
 texture = ExtResource("12_tim5x")
 texture_region_size = Vector2i(32, 32)
@@ -3208,6 +3287,7 @@ sources/5 = SubResource("TileSetAtlasSource_q1j8l")
 sources/1 = SubResource("TileSetAtlasSource_eisjr")
 sources/13 = SubResource("TileSetAtlasSource_wyt1r")
 sources/0 = SubResource("TileSetAtlasSource_tim5x")
+sources/2 = SubResource("TileSetAtlasSource_eqdlg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjmii"]
 texture = ExtResource("39_o4q3f")
@@ -3814,6 +3894,84 @@ texture_region_size = Vector2i(32, 32)
 5:5/0 = 0
 6:5/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_th214"]
+texture = ExtResource("40_eisjr")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+2:4/0 = 0
+6:4/0 = 0
+10:4/0 = 0
+5:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+1:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+7:7/0 = 0
+9:7/0 = 0
+11:7/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3vfr"]
 texture = ExtResource("12_tim5x")
 texture_region_size = Vector2i(32, 32)
@@ -4215,6 +4373,7 @@ texture_region_size = Vector2i(32, 32)
 4:49/0 = 0
 5:49/0 = 0
 6:49/0 = 0
+6:49/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
 0:50/0 = 0
 1:50/0 = 0
 2:50/0 = 0
@@ -4230,9 +4389,13 @@ texture_region_size = Vector2i(32, 32)
 5:51/0 = 0
 6:51/0 = 0
 0:52/0 = 0
+0:52/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
 1:52/0 = 0
+1:52/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
 2:52/0 = 0
+2:52/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
 3:52/0 = 0
+3:52/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 32, -16, 32)
 5:52/0 = 0
 6:52/0 = 0
 0:53/0 = 0
@@ -4639,6 +4802,7 @@ sources/5 = SubResource("TileSetAtlasSource_doebr")
 sources/1 = SubResource("TileSetAtlasSource_fpqal")
 sources/13 = SubResource("TileSetAtlasSource_gfe6j")
 sources/0 = SubResource("TileSetAtlasSource_cjmii")
+sources/2 = SubResource("TileSetAtlasSource_th214")
 
 [node name="HideSeekArea" type="Node2D" unique_id=1545636647]
 script = ExtResource("1_10xu5")
@@ -4712,6 +4876,28 @@ sprite_frames = SubResource("SpriteFrames_pxlmd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin3" unique_id=938109249]
 shape = SubResource("CircleShape2D_4icmt")
 
+[node name="HiddenAlipin4" type="Area2D" parent="." unique_id=1436511838]
+position = Vector2(496, 136)
+script = ExtResource("36_5x0jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin4" unique_id=845275461]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pxlmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin4" unique_id=1146977072]
+shape = SubResource("CircleShape2D_4icmt")
+
+[node name="HiddenAlipin5" type="Area2D" parent="." unique_id=1230093936]
+position = Vector2(152, -80)
+script = ExtResource("36_5x0jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin5" unique_id=566094608]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pxlmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin5" unique_id=1864552734]
+shape = SubResource("CircleShape2D_4icmt")
+
 [node name="MobileUI" parent="." unique_id=1208487421 instance=ExtResource("38_v3nsv")]
 
 [node name="DialogueBox" parent="." unique_id=1050714096 instance=ExtResource("35_pxlmd")]
@@ -4724,7 +4910,7 @@ tile_set = SubResource("TileSet_eqdlg")
 position = Vector2(240, 128)
 
 [node name="TreesLayer" type="TileMapLayer" parent="." unique_id=2024176522]
-tile_map_data = PackedByteArray("AAADAAcAFwAEAAMAAAAKAAcAFwAEAAMAAAALAAIAFwAEAAMAAAAKAP3/FwAEAAMAAAAEAAIAFwAEAAMAAAABAP7/FwAEAAMAAAA=")
+tile_map_data = PackedByteArray("AAADAAcAFwAEAAMAAAAKAAcAFwAEAAMAAAALAAIAFwAEAAMAAAAKAP3/FwAEAAMAAAAEAAIAFwAEAAMAAAABAP7/FwAEAAMAAAAAAAMAFwAGADEAAAAAAAIAFwAGADAAAAAEAP3/FwAAADMAAAAFAP3/FwABADMAAAAEAP7/FwAAADQAAAAFAP7/FwABADQAAAAOAAUAFwACADQAAAAPAAUAFwADADQAAAAPAAQAFwADADMAAAAOAAQAFwACADMAAAA=")
 tile_set = SubResource("TileSet_wyt1r")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
@@ -4734,3 +4920,7 @@ tile_set = SubResource("TileSet_wyt1r")
 [connection signal="body_exited" from="HiddenAlipin2" to="HiddenAlipin2" method="_on_body_exited"]
 [connection signal="body_entered" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_entered"]
 [connection signal="body_exited" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_exited"]
+[connection signal="body_entered" from="HiddenAlipin4" to="HiddenAlipin4" method="_on_body_entered"]
+[connection signal="body_exited" from="HiddenAlipin4" to="HiddenAlipin4" method="_on_body_exited"]
+[connection signal="body_entered" from="HiddenAlipin5" to="HiddenAlipin5" method="_on_body_entered"]
+[connection signal="body_exited" from="HiddenAlipin5" to="HiddenAlipin5" method="_on_body_exited"]

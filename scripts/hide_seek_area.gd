@@ -69,7 +69,7 @@ func found_alipin():
         found_count
     )
 
-    if found_count >= 3:
+    if found_count >= 6:
 
         win_game()
 
