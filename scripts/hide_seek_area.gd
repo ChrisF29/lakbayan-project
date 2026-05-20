@@ -13,9 +13,9 @@ extends Node2D
 const COUNTDOWN_SECONDS = 10
 const COUNTDOWN_HOLE_RADIUS = 72.0
 const COUNTDOWN_EDGE = 12.0
-const COUNTDOWN_SPOTLIGHT_OFFSET = Vector2(400.0, 240.0)
+const COUNTDOWN_SPOTLIGHT_OFFSET = Vector2(400.0, 250.0)
 
-@export var default_alipin_count = 4
+@export var default_alipin_count = 3
 
 var time_left = 60
 var found_count = 0

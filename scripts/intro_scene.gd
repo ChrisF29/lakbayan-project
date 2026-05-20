@@ -18,7 +18,7 @@ Bago dumating ang mga Espanyol,
 """
 May sariling sistemang panlipunan
 ang mga sinaunang Filipino
-na tinatawag na barangay.
+na tinatawag na balangay.
 """,
 
 """

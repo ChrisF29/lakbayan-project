@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://dtd53lo1lkhfb" path="res://tilemaps/mainmaptilemap/[A]Wall-Up1_pipo.png" id="40_tim5x"]
 [ext_resource type="Texture2D" uid="uid://ce8uwovbklywq" path="res://tilemaps/mainmaptilemap/[A]Wall-Up2_pipo.png" id="41_eisjr"]
 [ext_resource type="Texture2D" uid="uid://c1ktd2debh5wx" path="res://tilemaps/addwork.png" id="42_vguyb"]
+[ext_resource type="AudioStream" uid="uid://o3jve1pxcvbi" path="res://music/Kevin MacLeod - Itty Bitty 8 Bit  NO COPYRIGHT 8-bit Music.mp3" id="45_vguyb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uu32f"]
 texture = ExtResource("1_r1apk")
@@ -4907,6 +4908,12 @@ position = Vector2(384, 264)
 [node name="Spawn4" type="Marker2D" parent="AlipinSpawns" unique_id=15182317 groups=["alipin_spawn"]]
 position = Vector2(496, 136)
 
+[node name="Spawn5" type="Marker2D" parent="AlipinSpawns" unique_id=2109423888 groups=["alipin_spawn"]]
+position = Vector2(8, 96)
+
+[node name="Spawn6" type="Marker2D" parent="AlipinSpawns" unique_id=443789503 groups=["alipin_spawn"]]
+position = Vector2(152, 272)
+
 [node name="HiddenAlipin1" type="Area2D" parent="." unique_id=305090740 groups=["hidden_alipin"]]
 position = Vector2(-8, -24)
 script = ExtResource("36_5x0jb")
@@ -4916,6 +4923,28 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_pxlmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin1" unique_id=167353562]
+shape = SubResource("CircleShape2D_4icmt")
+
+[node name="HiddenAlipin2" type="Area2D" parent="." unique_id=2134567890 groups=["hidden_alipin"]]
+position = Vector2(-8, -24)
+script = ExtResource("36_5x0jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin2" unique_id=2134567891]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pxlmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin2" unique_id=2134567892]
+shape = SubResource("CircleShape2D_4icmt")
+
+[node name="HiddenAlipin3" type="Area2D" parent="." unique_id=2134567893 groups=["hidden_alipin"]]
+position = Vector2(-8, -24)
+script = ExtResource("36_5x0jb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HiddenAlipin3" unique_id=2134567894]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pxlmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HiddenAlipin3" unique_id=2134567895]
 shape = SubResource("CircleShape2D_4icmt")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1053521951]
@@ -4935,6 +4964,16 @@ position = Vector2(240, 128)
 tile_map_data = PackedByteArray("AAADAAcAFwAEAAMAAAAKAAcAFwAEAAMAAAALAAIAFwAEAAMAAAAKAP3/FwAEAAMAAAAEAAIAFwAEAAMAAAABAP7/FwAEAAMAAAAAAAMAFwAGADEAAAAAAAIAFwAGADAAAAAEAP3/FwAAADMAAAAFAP3/FwABADMAAAAEAP7/FwAAADQAAAAFAP7/FwABADQAAAAOAAUAFwACADQAAAAPAAUAFwADADQAAAAPAAQAFwADADMAAAAOAAQAFwACADMAAAA=")
 tile_set = SubResource("TileSet_wyt1r")
 
+[node name="HideAndSeekBGM" type="AudioStreamPlayer" parent="." unique_id=535536764]
+stream = ExtResource("45_vguyb")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="HiddenAlipin1" to="HiddenAlipin1" method="_on_body_entered"]
 [connection signal="body_exited" from="HiddenAlipin1" to="HiddenAlipin1" method="_on_body_exited"]
+[connection signal="body_entered" from="HiddenAlipin2" to="HiddenAlipin2" method="_on_body_entered"]
+[connection signal="body_exited" from="HiddenAlipin2" to="HiddenAlipin2" method="_on_body_exited"]
+[connection signal="body_entered" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_entered"]
+[connection signal="body_exited" from="HiddenAlipin3" to="HiddenAlipin3" method="_on_body_exited"]
