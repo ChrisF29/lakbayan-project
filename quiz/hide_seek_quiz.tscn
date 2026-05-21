@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="1_2yox5"]
 [ext_resource type="Script" uid="uid://c8kqeig6eo3l" path="res://minigames/scripts/hide_seek_quiz.gd" id="1_kp21p"]
 [ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="3_rtn8k"]
+[ext_resource type="Texture2D" uid="uid://ksbn0x4x5jku" path="res://assets/MenuBoard.png" id="4_a2aaq"]
+[ext_resource type="Texture2D" uid="uid://dqg2ckycqi20k" path="res://assets/GoldPNG.png" id="5_51xwl"]
 
 [node name="HideSeekQuiz" type="Control" unique_id=743579432]
 layout_mode = 3
@@ -75,11 +77,43 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_rtn8k")
 text = "Pag saludo"
 
-[node name="RewardLabel" type="Label" parent="." unique_id=330656371]
+[node name="RewardBG" type="TextureRect" parent="." unique_id=1209853363]
 visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 72.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_a2aaq")
+
+[node name="RewardLabel" type="Label" parent="RewardBG" unique_id=330656371]
 layout_mode = 0
-offset_left = 312.0
-offset_top = 232.0
-offset_right = 461.0
-offset_bottom = 255.0
-text = "REWARD: GINTO +1"
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 121.0
+offset_bottom = 41.0
+theme_override_colors/font_shadow_color = Color(0.009986146, 0.009986146, 0.009986146, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 13
+text = "GINTO +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldPNG" type="TextureRect" parent="RewardBG" unique_id=1109117858]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 104.0
+offset_bottom = 104.0
+texture = ExtResource("5_51xwl")
+expand_mode = 1

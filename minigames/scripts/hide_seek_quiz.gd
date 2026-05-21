@@ -6,7 +6,8 @@ extends Control
 
 @onready var answer_c = $Panel/VBoxContainer/AnswerC
 
-@onready var reward_label = $RewardLabel
+@onready var reward_bg = $RewardBG
+@onready var reward_label = $RewardBG/RewardLabel
 
 const WRONG_COLOR = Color(1, 0, 0)
 const CORRECT_COLOR = Color(0, 1, 0)
@@ -84,6 +85,7 @@ func reset_answer_colors():
 func reward_player():
 
 	PlayerData.ginto += 1
+	reward_bg.visible = true
 	reward_label.visible = true
 
 	QuestManager.set_quest(
