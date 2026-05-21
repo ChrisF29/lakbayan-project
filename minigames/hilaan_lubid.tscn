@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dwkc27s35x1tf" path="res://assets/rope-17098.png" id="3_je3ro"]
 [ext_resource type="Texture2D" uid="uid://cdjdbfdy82giq" path="res://assets/buttonLong_beige.png" id="4_je3ro"]
 [ext_resource type="Texture2D" uid="uid://besv0c1iluoo7" path="res://assets/buttonLong_beige_pressed.png" id="5_6ayg7"]
+[ext_resource type="AudioStream" uid="uid://djmeer7ji7pay" path="res://music/Travelers Quest  (16-Bit Arcade No Copyright Music).mp3" id="8_6ayg7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufpv5"]
 texture = ExtResource("4_je3ro")
@@ -91,6 +92,9 @@ wait_time = 30.0
 one_shot = true
 
 [node name="DialogueBox" parent="." unique_id=1087356528 instance=ExtResource("2_dialogue_box")]
+
+[node name="HilaanLubidBGM" type="AudioStreamPlayer" parent="." unique_id=1142326770]
+stream = ExtResource("8_6ayg7")
 
 [connection signal="pressed" from="PullButton" to="." method="_on_pull_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
