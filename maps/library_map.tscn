@@ -235,6 +235,7 @@ shape = SubResource("CircleShape2D_1meln")
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=1005494702]
 layer = 2
 script = ExtResource("11_fade_layer")
+use_swirl = true
 
 [node name="ColorRect" type="ColorRect" parent="FadeLayer" unique_id=730737341]
 anchors_preset = 15

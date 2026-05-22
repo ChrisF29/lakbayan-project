@@ -63,7 +63,7 @@ Mukang hindi ka taga rito dahil kakaiba ang iyong pananamit.
 Ikaw ba ay naliligaw?
 """,
 """
-Nasa aming barangay ka.
+Nasa aming balangay ka.
 """,
 
 """
