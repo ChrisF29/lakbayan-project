@@ -48,7 +48,7 @@ func start_intro():
     var dialogue = [
 
 """
-Nandito na tayo sa aming barangay.
+Nandito na tayo sa aming balangay.
 """
     ]
 

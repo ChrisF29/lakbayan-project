@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://bdt6gs76u65l5" path="res://scenes/quest_ui.tscn" id="53_7ybnd"]
 [ext_resource type="Script" uid="uid://tc0b5af3qpqx" path="res://scripts/datu_house_entrance.gd" id="53_866u1"]
 [ext_resource type="Script" uid="uid://bynyo343p7cud" path="res://scripts/fade_layer.gd" id="54_i2bf6"]
+[ext_resource type="AudioStream" uid="uid://dx20cnhfoay3a" path="res://music/William Rosati - Floating Also  NO COPYRIGHT 8-bit Music.mp3" id="56_vmac6"]
 [ext_resource type="Script" uid="uid://d1rfpcylm1trl" path="res://scripts/naming_ui.gd" id="57_iobt8"]
 [ext_resource type="Script" uid="uid://cshufmk34kem3" path="res://scripts/rope_game_exit.gd" id="58_rope_game_exit"]
 
@@ -5340,6 +5341,11 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RopeGameExitArea/QuestBlocker" unique_id=791122194]
 position = Vector2(2.177063, 11.31781)
 shape = SubResource("RectangleShape2D_lhts2")
+
+[node name="MainGameBGM" type="AudioStreamPlayer" parent="." unique_id=929123785]
+stream = ExtResource("56_vmac6")
+volume_db = -5.0
+bus = &"Music"
 
 [connection signal="body_entered" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TimawaNPC/Area2D" to="TimawaNPC" method="_on_area_2d_body_exited"]

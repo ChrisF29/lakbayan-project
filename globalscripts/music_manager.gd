@@ -3,11 +3,14 @@ extends Node
 const DEFAULT_TRACK := preload("res://music/Adventure Begins  (16-Bit Arcade No Copyright Music).mp3")
 const DEFAULT_VOLUME_DB := -20.0
 const LIBRARY_TRACK := preload("res://music/Monplaisir - Soundtrack  NO COPYRIGHT 8-bit Music.mp3")
+const MAIN_GAME_TRACK := preload("res://music/William Rosati - Floating Also  NO COPYRIGHT 8-bit Music.mp3")
 const ALLOWED_SCENES := [
 	"res://scenes/main_menu.tscn",
 	"res://scenes/shop.tscn",
 	"res://maps/library_map.tscn",
 	"res://maps/pre_colonial_map_intro.tscn",
+	"res://maps/pre_colonial_main_map.tscn",
+	"res://scenes/datu_house.tscn",
 ]
 const SCENE_MUSIC := {
 	"res://maps/library_map.tscn": {
@@ -17,6 +20,14 @@ const SCENE_MUSIC := {
 	"res://maps/pre_colonial_map_intro.tscn": {
 		"stream": LIBRARY_TRACK,
 		"volume_db": -10.0,
+	},
+	"res://maps/pre_colonial_main_map.tscn": {
+		"stream": MAIN_GAME_TRACK,
+		"volume_db": -5.0,
+	},
+	"res://scenes/datu_house.tscn": {
+		"stream": MAIN_GAME_TRACK,
+		"volume_db": -5.0,
 	},
 }
 

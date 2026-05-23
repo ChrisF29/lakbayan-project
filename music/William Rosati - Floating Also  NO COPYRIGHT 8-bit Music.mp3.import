@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dx20cnhfoay3a"
+path="res://.godot/imported/William Rosati - Floating Also  NO COPYRIGHT 8-bit Music.mp3-c9ff51f36ea0fdb038b5fa423c4c1381.mp3str"
+
+[deps]
+
+source_file="res://music/William Rosati - Floating Also  NO COPYRIGHT 8-bit Music.mp3"
+dest_files=["res://.godot/imported/William Rosati - Floating Also  NO COPYRIGHT 8-bit Music.mp3-c9ff51f36ea0fdb038b5fa423c4c1381.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
