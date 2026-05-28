@@ -85,9 +85,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -110.0
-offset_top = -70.0
+offset_top = -90.0
 offset_right = 110.0
-offset_bottom = 70.0
+offset_bottom = 90.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -105,6 +105,21 @@ text = "Game Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SaveButton" type="Button" parent="GamePaused" unique_id=1334589217]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -14.0
+offset_right = 50.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "SAVE"
+
 [node name="ResumeButton" type="Button" parent="GamePaused" unique_id=451959546]
 layout_mode = 1
 anchors_preset = 8
@@ -113,11 +128,26 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = 16.0
+offset_top = 20.0
 offset_right = 50.0
-offset_bottom = 40.0
+offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "RESUME"
+
+[node name="QuitToMenuButton" type="Button" parent="GamePaused" unique_id=680614908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = 54.0
+offset_right = 70.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "MAIN MENU"
 
 [connection signal="pressed" from="InteractButton" to="InteractButtonClickSFX" method="play"]

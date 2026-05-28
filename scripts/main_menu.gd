@@ -67,4 +67,34 @@ func _on_quit_pressed() -> void:
 
 
 func _on_load_game_pressed() -> void:
-	pass # Replace with function body.
+	var data = PlayerData.load_game()
+
+	if data.is_empty():
+		push_warning("No save data found.")
+		return
+
+	var scene_data = data.get(
+		"scene",
+		{}
+	)
+
+	if typeof(scene_data) != TYPE_DICTIONARY:
+		push_warning("Invalid save data.")
+		return
+
+	var scene_path = scene_data.get(
+		"path",
+		""
+	)
+
+	if scene_path == "":
+		push_warning("Save is missing scene path.")
+		return
+
+	Music.fade_out_music(1.0)
+
+	fade_anim.play("fade_out")
+
+	await fade_anim.animation_finished
+
+	get_tree().change_scene_to_file(scene_path)
