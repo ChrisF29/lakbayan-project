@@ -158,6 +158,20 @@ Salamat sa pinakita mong tapang.
 			true
 		)
 
+		var datu_target = get_parent().get_node_or_null(
+			"DatuQuestPoint"
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Pumunta sa DATU.",
+
+				"target":
+				datu_target
+			}
+		)
+
 		dialogue_started = false
 
 		if player_inside:

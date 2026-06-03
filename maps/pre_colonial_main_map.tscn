@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://b7i8edk3p1xw3" path="res://npc/IDLE-CHARACTERS.png" id="44_vmac6"]
 [ext_resource type="Script" uid="uid://cu5paiyne1dnm" path="res://scripts/npc/saguiguilid_npc.gd" id="45_3rwo3"]
 [ext_resource type="Script" uid="uid://cpufmhhalt5gc" path="res://scripts/npc/babaylan_npc.gd" id="45_g864b"]
+[ext_resource type="Script" uid="uid://sdwlpsw7udq0" path="res://scripts/npc/mangangalakal_npc.gd" id="45_iobt8"]
 [ext_resource type="PackedScene" uid="uid://bt7i2dmonvdx0" path="res://scenes/mobile_ui.tscn" id="47_yhy1s"]
 [ext_resource type="PackedScene" uid="uid://dsm6pv2lhxdee" path="res://scenes/dialogue_box.tscn" id="48_h63fm"]
 [ext_resource type="Script" uid="uid://c2hrsbc12f5xx" path="res://scripts/quest_arrow_ui.gd" id="51_lhts2"]
@@ -5190,7 +5191,7 @@ collision_mask = 17
 shape = SubResource("CircleShape2D_liws2")
 
 [node name="SaguiguilidNPC" type="CharacterBody2D" parent="." unique_id=1696638517]
-position = Vector2(264, -224)
+position = Vector2(296, -320)
 collision_layer = 16
 script = ExtResource("45_3rwo3")
 
@@ -5211,6 +5212,28 @@ collision_mask = 17
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SaguiguilidNPC/Area2D" unique_id=479237513]
 shape = SubResource("CircleShape2D_liws2")
 
+[node name="MangangalakalNPC" type="CharacterBody2D" parent="." unique_id=786794311]
+position = Vector2(328, -72)
+collision_layer = 16
+script = ExtResource("45_iobt8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MangangalakalNPC" unique_id=477564892]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_liws2")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MangangalakalNPC" unique_id=2079775873]
+position = Vector2(0.022369385, 2.0185757)
+shape = SubResource("RectangleShape2D_yvvlm")
+
+[node name="Area2D" type="Area2D" parent="MangangalakalNPC" unique_id=126013637]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MangangalakalNPC/Area2D" unique_id=1862369421]
+shape = SubResource("CircleShape2D_liws2")
+
 [node name="BushesLayer" type="TileMapLayer" parent="." unique_id=726682023]
 position = Vector2(16, 600)
 scale = Vector2(2, 2)
@@ -5222,7 +5245,7 @@ position = Vector2(240, 368)
 
 [node name="HouseLayer" type="TileMapLayer" parent="." unique_id=271908903]
 position = Vector2(16, 600)
-tile_map_data = PackedByteArray("AAD1/9//GQAJAAIAAADu/+P/GQATAAQAAAD9/+L/GQAcAAIAAAALAOP/GQAmAAQAAAD9/+v/GQATAAQAAAA=")
+tile_map_data = PackedByteArray("AAD1/9//GQAJAAIAAADu/+P/GQATAAQAAAD9/+L/GQAcAAIAAAD9/+v/GQATAAQAAAAMAOD/GQAmAAQAAAAMAOj/GQATAAQAAAA=")
 tile_set = SubResource("TileSet_7ybnd")
 
 [node name="TreesLayer" type="TileMapLayer" parent="." unique_id=683961398]
@@ -5359,6 +5382,8 @@ bus = &"Music"
 [connection signal="body_exited" from="BabaylanNPC/Area2D" to="BabaylanNPC" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="SaguiguilidNPC/Area2D" to="SaguiguilidNPC" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SaguiguilidNPC/Area2D" to="SaguiguilidNPC" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="MangangalakalNPC/Area2D" to="MangangalakalNPC" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MangangalakalNPC/Area2D" to="MangangalakalNPC" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="DatuHouseEntrance" to="DatuHouseEntrance" method="_on_body_entered"]
 [connection signal="body_exited" from="DatuHouseEntrance" to="DatuHouseEntrance" method="_on_body_exited"]
 [connection signal="pressed" from="NamingUI/Panel/VBoxContainer/ConfirmButton" to="NamingUI" method="_on_confirm_button_pressed"]

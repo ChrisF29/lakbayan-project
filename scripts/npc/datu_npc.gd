@@ -97,6 +97,56 @@ Salamat sa paghahanap sa mga alipin ko.
 		return
 
 	if QuestManager.get_state(
+		"maharlika_final_done"
+	) \
+	and !QuestManager.get_state(
+		"barter_intro_done"
+	):
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var dialogue = [
+
+"""
+Dahil sa maganda ang iyong ginagawa at pag tulong sa mga nangangailangan sa dito aming lugar, maaari mong ipagpalit ang iyong mga nakuhang pabuya sa mangangalakal.
+""",
+
+"""
+Pwede mong ipalit ang produkto kapalit ng ibang produkto at tinatawag itong kalakalan barter.
+"""
+		]
+
+		dialogue_box.start(
+			"DATU",
+			dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"barter_intro_done",
+			true
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Pumunta sa MANGANGALAKAL.",
+
+				"target":
+				null
+			}
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
 		"hide_seek_started"
 	):
 		return

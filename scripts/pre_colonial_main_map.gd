@@ -6,6 +6,7 @@ extends Node2D
 @onready var datu_exit_spawn =$DatuHouseExitSpawn
 @onready var quest_timawa =$TimawaQuestNPC
 @onready var maharlika_target = get_node_or_null("MaharlikaQuestPoint")
+@onready var mangangalakal_target = get_node_or_null("MangangalakalNPC")
 
 func _ready():
 
@@ -42,6 +43,8 @@ func _ready():
 
     update_maharlika_target()
     update_maharlika_return_target()
+    update_barter_datu_target()
+    update_mangangalakal_target()
 
 func start_intro():
 
@@ -194,5 +197,68 @@ func update_maharlika_return_target():
 
             "target":
             maharlika_target
+        }
+    )
+
+func update_barter_datu_target():
+
+    if !QuestManager.get_state(
+        "maharlika_final_done"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "barter_intro_done"
+    ):
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        if QuestManager.current_quest == "Pumunta sa DATU.":
+            return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta sa DATU.",
+
+            "target":
+            datu_target
+        }
+    )
+
+func update_mangangalakal_target():
+
+    if mangangalakal_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "barter_intro_done"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "mangangalakal_done"
+    ):
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        if QuestManager.current_quest == "Pumunta sa MANGANGALAKAL.":
+            return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta sa MANGANGALAKAL.",
+
+            "target":
+            mangangalakal_target
         }
     )
