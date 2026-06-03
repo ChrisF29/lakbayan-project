@@ -7,6 +7,8 @@ extends Node2D
 @onready var quest_timawa =$TimawaQuestNPC
 @onready var maharlika_target = get_node_or_null("MaharlikaQuestPoint")
 @onready var mangangalakal_target = get_node_or_null("MangangalakalNPC")
+@onready var babaylan_target = get_node_or_null("BabaylanNPC")
+@onready var anito_target = get_node_or_null("AnitoQuestPoint")
 
 func _ready():
 
@@ -33,6 +35,15 @@ func _ready():
 
         SpawnManager.next_spawn = ""
 
+    elif SpawnManager.next_spawn \
+    == "MangangalakalNPC":
+
+        if mangangalakal_target != null:
+            player.global_position = \
+            mangangalakal_target.global_position
+
+        SpawnManager.next_spawn = ""
+
     if !QuestManager.village_intro_done:
 
         QuestManager.village_intro_done = true
@@ -45,6 +56,8 @@ func _ready():
     update_maharlika_return_target()
     update_barter_datu_target()
     update_mangangalakal_target()
+    update_babaylan_help_target()
+    update_anito_target()
 
 func start_intro():
 
@@ -85,6 +98,15 @@ func handle_spawn():
             "maharlika_arc_started"
         ):
             start_timawa_quest_intro()
+
+        SpawnManager.next_spawn = ""
+
+    elif SpawnManager.next_spawn \
+    == "MangangalakalNPC":
+
+        if mangangalakal_target != null:
+            player.global_position = \
+            mangangalakal_target.global_position
 
         SpawnManager.next_spawn = ""
 
@@ -260,5 +282,77 @@ func update_mangangalakal_target():
 
             "target":
             mangangalakal_target
+        }
+    )
+
+func update_babaylan_help_target():
+
+    if babaylan_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "mangangalakal_done"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "babaylan_help_started"
+    ):
+        return
+
+    if QuestManager.current_quest \
+    != "Pumunta sa BABAYLAN na nangangailangan ng tulong.":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta sa BABAYLAN na nangangailangan ng tulong.",
+
+            "target":
+            babaylan_target
+        }
+    )
+
+func update_anito_target():
+
+    if anito_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "anito_quest_started"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "anito_quest_complete"
+    ):
+        return
+
+    if QuestManager.current_quest \
+    != "Kunin ang Sagradong anito.":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Kunin ang Sagradong anito.",
+
+            "target":
+            anito_target
         }
     )

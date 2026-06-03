@@ -49,6 +49,15 @@ func start_dialogue():
 		return
 
 	if QuestManager.get_state(
+		"barter_shop_unlocked"
+	) \
+	and QuestManager.get_state(
+		"mangangalakal_done"
+	):
+		open_shop()
+		return
+
+	if QuestManager.get_state(
 		"mangangalakal_done"
 	):
 		return
@@ -88,11 +97,42 @@ Bilang isang mangangalakal, mahalaga ang aking papel sa pagdadala ng mga kalakal
 		true
 	)
 
+	QuestManager.set_state(
+		"barter_shop_unlocked",
+		true
+	)
+
 	QuestManager.complete_quest(
 		"Pumunta sa MANGANGALAKAL."
+	)
+
+	QuestManager.unlock_quest(
+		"BABAYLAN"
+	)
+
+	QuestManager.set_quest(
+		{
+			"text":
+			"Pumunta sa BABAYLAN na nangangailangan ng tulong.",
+
+			"target":
+			get_parent().get_node_or_null(
+				"BabaylanNPC"
+			)
+		}
 	)
 
 	dialogue_started = false
 
 	if player_inside:
 		interact_button.visible = true
+
+	open_shop()
+
+func open_shop():
+
+	SpawnManager.next_spawn = "MangangalakalNPC"
+
+	get_tree().change_scene_to_file(
+		"res://scenes/shop.tscn"
+	)

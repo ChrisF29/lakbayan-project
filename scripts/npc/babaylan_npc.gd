@@ -43,6 +43,87 @@ func _on_area_2d_body_exited(body):
 
 func start_dialogue():
 
+	if QuestManager.get_state(
+		"babaylan_help_done"
+	):
+		return
+
+	if QuestManager.get_state(
+		"babaylan_help_started"
+	):
+		return
+
+	if QuestManager.get_state(
+		"mangangalakal_done"
+	) \
+	and !QuestManager.get_state(
+		"babaylan_help_started"
+	):
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var dialogue = [
+
+"""
+Magandang araw sa iyo dayuhan, nababalitaan ko ang busilak na pagtulong mo dito sa aming lugar.
+""",
+
+"""
+Maaari mo ba akong tulungan na kuhain ang mga anito para sa isasagawa kong ritwal at paggagamot?
+""",
+
+"""
+Andito na ang mga halamang gamot ngunit wala ang mga anito na kailangan sa pagriritwal.
+""",
+
+"""
+Dahil marami nang nagkakasakit dito sa aming lugar.
+"""
+		]
+
+		dialogue_box.start(
+			"BABAYLAN",
+			dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"babaylan_help_started",
+			true
+		)
+
+		QuestManager.set_state(
+			"anito_quest_started",
+			true
+		)
+
+		QuestManager.complete_quest(
+			"Pumunta sa BABAYLAN na nangangailangan ng tulong."
+		)
+
+		var anito_target = get_parent().get_node_or_null(
+			"AnitoQuestPoint"
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Kunin ang Sagradong anito.",
+
+				"target":
+				anito_target
+			}
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
 	if !QuestManager.is_unlocked("BABAYLAN"):
 
 		dialogue_started = true

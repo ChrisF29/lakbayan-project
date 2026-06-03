@@ -1711,7 +1711,6 @@ tile_set = SubResource("TileSet_tsb35")
 [node name="FadeLayer" type="CanvasLayer" parent="." unique_id=394663658]
 layer = 2
 script = ExtResource("29_jwhi7")
-use_swirl = false
 swirl_intro = true
 
 [node name="ColorRect" type="ColorRect" parent="FadeLayer" unique_id=1057721480]

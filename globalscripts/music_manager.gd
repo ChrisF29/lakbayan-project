@@ -11,6 +11,7 @@ const ALLOWED_SCENES := [
 	"res://maps/pre_colonial_map_intro.tscn",
 	"res://maps/pre_colonial_main_map.tscn",
 	"res://scenes/datu_house.tscn",
+	"res://minigames/patintero.tscn",
 ]
 const SCENE_MUSIC := {
 	"res://maps/library_map.tscn": {
@@ -26,6 +27,10 @@ const SCENE_MUSIC := {
 		"volume_db": -5.0,
 	},
 	"res://scenes/datu_house.tscn": {
+		"stream": MAIN_GAME_TRACK,
+		"volume_db": -5.0,
+	},
+	"res://minigames/patintero.tscn": {
 		"stream": MAIN_GAME_TRACK,
 		"volume_db": -5.0,
 	},
