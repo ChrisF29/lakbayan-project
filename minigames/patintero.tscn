@@ -39,6 +39,8 @@
 [ext_resource type="Texture2D" uid="uid://c1ktd2debh5wx" path="res://tilemaps/addwork.png" id="37_1e0i3"]
 [ext_resource type="PackedScene" uid="uid://b7aoe2f7273m4" path="res://player/player.tscn" id="38_g2oad"]
 [ext_resource type="Texture2D" uid="uid://dp2p8iog5gh84" path="res://tilemaps/housestilemap/ChatGPT Image May 9, 2026, 12_25_09 PM.png" id="39_djudh"]
+[ext_resource type="Script" uid="uid://d2qy5icyp4t01" path="res://minigames/scripts/patintero_guard.gd" id="40_t1hyw"]
+[ext_resource type="Texture2D" uid="uid://fsks2yy3walw" path="res://npc/SHOPKEEPERt.png" id="41_o1itg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0o6k"]
 texture = ExtResource("2_cpt5d")
@@ -4614,6 +4616,75 @@ sources/13 = SubResource("TileSetAtlasSource_mvkm0")
 sources/0 = SubResource("TileSetAtlasSource_y4oe2")
 sources/25 = SubResource("TileSetAtlasSource_44en2")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3w8s5"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkho2"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfsnc"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx3lj"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acns5"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umau4"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvnnx"]
+atlas = ExtResource("41_o1itg")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvkm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3w8s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkho2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vfsnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx3lj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acns5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umau4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvnnx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7e7ds"]
+size = Vector2(32.000656, 39.427036)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t1hyw"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1hyw"]
+size = Vector2(382, 157.24998)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vfgam"]
+radius = 24.0
+
 [node name="Patintero" type="Node2D" unique_id=574250463]
 script = ExtResource("1_pati")
 
@@ -4627,10 +4698,93 @@ position = Vector2(232, -192)
 tile_map_data = PackedByteArray("AAABAAEAFwAIABQAAAABAAUAFwAIABMAAAABAAgAFwAIABMAAAAAAAkAFwAHABMAAAAIAAkAFwAIABMAAAANAAQAFwAIABMAAAANAAEAFwAIABMAAAAKAP//FwAIABMAAAAKAAAAFwAIABMAAAAOAAMAFwAIABMAAAAOAAgAFwAHABMAAAAOAAkAFwAHABMAAAAMAAoAFwAHABMAAAALAAgAFwAHABMAAAAOAP//FwAHABMAAAANAAMAFwAHABMAAAAPAAgAFwAHABMAAAAPAAoAFwAHABMAAAAOAAoAFwAHABMAAAD//wQAFwAHABMAAAACAAQAFwAHABMAAAAEAAUAFwAHABMAAAAEAAYAFwAHABMAAAAFAAoAFwAHABMAAAAIAAEAFwAGABMAAAAIAAMAFwAGABMAAAAJAAUAFwAGABMAAAAEAP//FwAGABMAAAARAP7/FwAHABQAAAAQAAMAFwAHABQAAAARAAkAFwAHABQAAAD9/wUAFwAHABQAAAD+/wEAFwAHABQAAAD+//7/FwAHABQAAAACAPz/FwAHABQAAAABAPz/FwAHABQAAAD+/wgAFwAHABQAAAD+//z/FwAIABQAAAD9/wEAFwAIABQAAAD+/wcAFwAIABQAAAAQAAIAFwAIABQAAADu/w8AFwAIABQAAADu/xMAFwAHABQAAADv/woAFwAIABQAAADv/wwAFwAHABQAAADv/w8AFwAHABQAAADv/xUAFwAIABQAAADv/xYAFwAHABQAAADw/xIAFwAHABMAAADx/xcAFwAIABMAAADy/woAFwAHABQAAADy/w8AFwAIABMAAADy/xMAFwAIABMAAADy/xYAFwAIABMAAADz/woAFwAHABQAAADz/xIAFwAHABMAAAD1/w0AFwAGABMAAAD1/xMAFwAHABMAAAD1/xQAFwAHABMAAAD2/xgAFwAHABMAAAD5/w8AFwAGABMAAAD5/xEAFwAGABMAAAD5/xcAFwAIABMAAAD6/xMAFwAGABMAAAD7/w0AFwAIABMAAAD7/w4AFwAIABMAAAD8/xYAFwAHABMAAAD9/xgAFwAHABMAAAD+/w8AFwAIABQAAAD+/xEAFwAHABMAAAD+/xIAFwAIABMAAAD//w0AFwAHABMAAAD//xEAFwAIABMAAAD//xYAFwAHABQAAAD//xcAFwAHABMAAAD//xgAFwAHABMAAAAAABYAFwAHABMAAAAAABgAFwAHABMAAAABABAAFwAIABQAAAABABEAFwAHABQAAAACAAwAFwAHABQAAAACABcAFwAHABQAAADu/wAAFwAIABQAAADu/wQAFwAHABQAAADv//v/FwAIABQAAADv//3/FwAHABQAAADv/wAAFwAHABQAAADv/wYAFwAIABQAAADv/wcAFwAHABQAAADw/wMAFwAHABMAAADx/wgAFwAIABMAAADy//v/FwAHABQAAADy/wAAFwAIABMAAADy/wQAFwAIABMAAADy/wcAFwAIABMAAADz//v/FwAHABQAAADz/wMAFwAHABMAAAD1//7/FwAGABMAAAD1/wQAFwAHABMAAAD1/wUAFwAHABMAAAD2/wkAFwAHABMAAAD5/wAAFwAGABMAAAD5/wIAFwAGABMAAAD5/wgAFwAIABMAAAD6/wQAFwAGABMAAAD7//7/FwAIABMAAAD7////FwAIABMAAAD8/wcAFwAHABMAAAD9/wkAFwAHABMAAAD+/wAAFwAIABMAAAD+/wIAFwAHABMAAAD+/wMAFwAIABMAAAD///7/FwAHABMAAAD//wIAFwAIABMAAAD//wcAFwAHABMAAAD//wgAFwAHABMAAAD//wkAFwAHABMAAAAAAAcAFwAHABMAAAABAAIAFwAHABQAAAACAP3/FwAHABQAAAACAAgAFwAHABQAAAD+/xMAFwAHABQAAAD//woAFwAIABQAAAD//wwAFwAHABQAAAD//w8AFwAHABQAAAD//xUAFwAIABQAAAAAABIAFwAHABMAAAABABcAFwAIABMAAAACAAoAFwAHABQAAAACAA8AFwAIABMAAAACABMAFwAIABMAAAACABYAFwAIABMAAAADAAoAFwAHABQAAAADABIAFwAHABMAAAAFAA0AFwAGABMAAAAFABMAFwAHABMAAAAFABQAFwAHABMAAAAGABgAFwAHABMAAAAJAA8AFwAGABMAAAAJABEAFwAGABMAAAAJABcAFwAIABMAAAAKABMAFwAGABMAAAALAA0AFwAIABMAAAALAA4AFwAIABMAAAAMABYAFwAHABMAAAANABgAFwAHABMAAAAOAA8AFwAIABMAAAAOABEAFwAHABMAAAAOABIAFwAIABMAAAAPAA0AFwAHABMAAAAPABEAFwAIABMAAAAPABYAFwAHABMAAAAPABcAFwAHABMAAAAPABgAFwAHABMAAAAQABYAFwAHABMAAAAQABgAFwAHABMAAAARABAAFwAIABQAAAARABEAFwAHABQAAAASAAwAFwAHABQAAAASABcAFwAHABQAAAA=")
 tile_set = SubResource("TileSet_ke8m0")
 
+[node name="Fence" type="TileMapLayer" parent="." unique_id=870251207]
+position = Vector2(552, 864)
+tile_map_data = PackedByteArray("AADv/97/FwAGABwAAADw/97/FwAGABwAAADx/97/FwAGABwAAADy/97/FwAGABwAAADz/97/FwAGABwAAAD5/97/FwAGABwAAAD6/97/FwAHABwAAAD7/97/FwAGABwAAAD8/97/FwAGABwAAAD9/97/FwAGABwAAADv//T/FwAHABwAAADw//T/FwAHABwAAADx//T/FwAHABwAAADy//T/FwAHABwAAADz//T/FwAHABwAAAD0//T/FwAHABwAAAD1//T/FwAHABwAAAD2//T/FwAHABwAAAD3//T/FwAHABwAAAD4//T/FwAHABwAAAD5//T/FwAHABwAAAD6//T/FwAHABwAAAD7//T/FwAHABwAAAD8//T/FwAHABwAAAD9//T/FwAHABwAAADv/9//FwAGACAAAADv/+D/FwAGACAAAADv/+H/FwAGACAAAADv/+L/FwAGACAAAADv/+P/FwAGACAAAADv/+T/FwAGACAAAADv/+b/FwAGACAAAADv/+j/FwAGACAAAADv/+r/FwAGACAAAADv/+z/FwAGACAAAADv/+3/FwAGACAAAADv/+7/FwAGACAAAADv/+//FwAGACAAAADv//D/FwAGACAAAADv//H/FwAGACAAAADv//P/FwAGACAAAAD9/9//FwAHACAAAAD9/+H/FwAHACAAAAD9/+L/FwAHACAAAAD9/+P/FwAHACAAAAD9/+T/FwAHACAAAAD9/+X/FwAHACAAAAD9/+b/FwAHACAAAAD9/+j/FwAHACAAAAD9/+n/FwAHACAAAAD9/+r/FwAHACAAAAD9/+v/FwAHACAAAAD9/+z/FwAHACAAAAD9/+3/FwAHACAAAAD9/+//FwAHACAAAAD9//D/FwAHACAAAAD9//L/FwAHACAAAAD9//P/FwAHACAAAAD0/97/FwAHABwAAAD4/97/FwAGABwAAADK/+L/FwAIABQAAADK/+b/FwAHABQAAADL/93/FwAIABQAAADL/9//FwAHABQAAADL/+L/FwAHABQAAADL/+j/FwAIABQAAADL/+n/FwAHABQAAADM/+X/FwAHABMAAADN/+r/FwAIABMAAADO/93/FwAHABQAAADO/+L/FwAIABMAAADO/+b/FwAIABMAAADO/+n/FwAIABMAAADP/93/FwAHABQAAADP/+X/FwAHABMAAADR/+D/FwAGABMAAADR/+b/FwAHABMAAADR/+f/FwAHABMAAADS/+v/FwAHABMAAADV/+L/FwAGABMAAADV/+T/FwAGABMAAADV/+r/FwAIABMAAADW/+b/FwAGABMAAADX/+D/FwAIABMAAADX/+H/FwAIABMAAADY/+n/FwAHABMAAADZ/+v/FwAHABMAAADa/+L/FwAIABMAAADa/+T/FwAHABMAAADa/+X/FwAIABMAAADb/+D/FwAHABMAAADb/+T/FwAIABMAAADb/+n/FwAHABMAAADb/+r/FwAHABMAAADb/+v/FwAHABMAAADc/+n/FwAHABMAAADc/+v/FwAHABMAAADd/+P/FwAIABQAAADd/+T/FwAHABQAAADe/9//FwAHABQAAADe/+r/FwAHABQAAAA=")
+tile_set = SubResource("TileSet_0uji7")
+
 [node name="Player" parent="." unique_id=1060294693 instance=ExtResource("38_g2oad")]
 position = Vector2(246.66592, 420.21936)
 
-[node name="Fence" type="TileMapLayer" parent="." unique_id=870251207]
-position = Vector2(552, 864)
-tile_map_data = PackedByteArray("AADv/97/FwAGABwAAADw/97/FwAGABwAAADx/97/FwAGABwAAADy/97/FwAGABwAAADz/97/FwAGABwAAAD5/97/FwAGABwAAAD6/97/FwAHABwAAAD7/97/FwAGABwAAAD8/97/FwAGABwAAAD9/97/FwAGABwAAADv//T/FwAHABwAAADw//T/FwAHABwAAADx//T/FwAHABwAAADy//T/FwAHABwAAADz//T/FwAHABwAAAD0//T/FwAHABwAAAD1//T/FwAHABwAAAD2//T/FwAHABwAAAD3//T/FwAHABwAAAD4//T/FwAHABwAAAD5//T/FwAHABwAAAD6//T/FwAHABwAAAD7//T/FwAHABwAAAD8//T/FwAHABwAAAD9//T/FwAHABwAAADv/9//FwAGACAAAADv/+D/FwAGACAAAADv/+H/FwAGACAAAADv/+L/FwAGACAAAADv/+P/FwAGACAAAADv/+T/FwAGACAAAADv/+b/FwAGACAAAADv/+j/FwAGACAAAADv/+r/FwAGACAAAADv/+z/FwAGACAAAADv/+3/FwAGACAAAADv/+7/FwAGACAAAADv/+//FwAGACAAAADv//D/FwAGACAAAADv//H/FwAGACAAAADv//P/FwAGACAAAAD9/9//FwAHACAAAAD9/+H/FwAHACAAAAD9/+L/FwAHACAAAAD9/+P/FwAHACAAAAD9/+T/FwAHACAAAAD9/+X/FwAHACAAAAD9/+b/FwAHACAAAAD9/+j/FwAHACAAAAD9/+n/FwAHACAAAAD9/+r/FwAHACAAAAD9/+v/FwAHACAAAAD9/+z/FwAHACAAAAD9/+3/FwAHACAAAAD9/+//FwAHACAAAAD9//D/FwAHACAAAAD9//L/FwAHACAAAAD9//P/FwAHACAAAAD0/97/FwAHABwAAAD4/97/FwAGABwAAAA=")
-tile_set = SubResource("TileSet_0uji7")
+[node name="Guard1" type="CharacterBody2D" parent="." unique_id=1730126077]
+position = Vector2(248, 312)
+collision_layer = 17
+script = ExtResource("40_t1hyw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard1" unique_id=1960706081]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mvkm0")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1" unique_id=84682845]
+position = Vector2(0.022369385, 2.0185757)
+shape = SubResource("RectangleShape2D_7e7ds")
+
+[node name="CatchArea" type="Area2D" parent="Guard1" unique_id=343346354]
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1/CatchArea" unique_id=2061096478]
+position = Vector2(-0.0019836426, 8)
+shape = SubResource("CircleShape2D_t1hyw")
+
+[node name="DetectionArea" type="Area2D" parent="Guard1" unique_id=1558995863]
+collision_layer = 25
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1/DetectionArea" unique_id=1461509659]
+position = Vector2(-0.0019836426, 76.62497)
+shape = SubResource("RectangleShape2D_t1hyw")
+
+[node name="Guard2" type="CharacterBody2D" parent="." unique_id=484209489]
+position = Vector2(248, 136)
+collision_layer = 16
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard2" unique_id=1023217579]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mvkm0")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2" unique_id=2115267917]
+position = Vector2(0.022369385, 2.0185757)
+shape = SubResource("RectangleShape2D_7e7ds")
+
+[node name="Area2D" type="Area2D" parent="Guard2" unique_id=231492292]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2/Area2D" unique_id=426143087]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_vfgam")
+
+[node name="Guard3" type="CharacterBody2D" parent="." unique_id=1388378072]
+position = Vector2(248, -48)
+collision_layer = 16
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard3" unique_id=1569446197]
+position = Vector2(0, -8)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_mvkm0")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3" unique_id=239297187]
+position = Vector2(0.022369385, 2.0185757)
+shape = SubResource("RectangleShape2D_7e7ds")
+
+[node name="Area2D" type="Area2D" parent="Guard3" unique_id=1031782847]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3/Area2D" unique_id=278554762]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_vfgam")
+
+[connection signal="body_entered" from="Guard1/CatchArea" to="Guard1" method="_on_catch_area_body_entered"]
+[connection signal="body_entered" from="Guard1/DetectionArea" to="Guard1" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guard1/DetectionArea" to="Guard1" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Guard2/Area2D" to="Guard2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guard2/Area2D" to="Guard2" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Guard3/Area2D" to="Guard3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guard3/Area2D" to="Guard3" method="_on_area_2d_body_exited"]
