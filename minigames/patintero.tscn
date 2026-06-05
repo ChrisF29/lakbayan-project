@@ -4723,7 +4723,6 @@ shape = SubResource("RectangleShape2D_7e7ds")
 
 [node name="CatchArea" type="Area2D" parent="Guard1" unique_id=343346354]
 collision_layer = 25
-collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1/CatchArea" unique_id=2061096478]
 position = Vector2(-0.0019836426, 8)
@@ -4731,15 +4730,15 @@ shape = SubResource("CircleShape2D_t1hyw")
 
 [node name="DetectionArea" type="Area2D" parent="Guard1" unique_id=1558995863]
 collision_layer = 25
-collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1/DetectionArea" unique_id=1461509659]
 position = Vector2(-0.0019836426, 76.62497)
 shape = SubResource("RectangleShape2D_t1hyw")
 
 [node name="Guard2" type="CharacterBody2D" parent="." unique_id=484209489]
-position = Vector2(248, 136)
-collision_layer = 16
+position = Vector2(248, 112)
+collision_layer = 17
+script = ExtResource("40_t1hyw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard2" unique_id=1023217579]
 position = Vector2(0, -8)
@@ -4751,17 +4750,24 @@ animation = &"idle"
 position = Vector2(0.022369385, 2.0185757)
 shape = SubResource("RectangleShape2D_7e7ds")
 
-[node name="Area2D" type="Area2D" parent="Guard2" unique_id=231492292]
-collision_layer = 17
-collision_mask = 17
+[node name="CatchArea" type="Area2D" parent="Guard2" unique_id=231492292]
+collision_layer = 25
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2/Area2D" unique_id=426143087]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2/CatchArea" unique_id=426143087]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_vfgam")
 
+[node name="DetectionArea" type="Area2D" parent="Guard2" unique_id=1935170253]
+collision_layer = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2/DetectionArea" unique_id=-1825868582]
+position = Vector2(-0.0019836426, 76.62497)
+shape = SubResource("RectangleShape2D_t1hyw")
+
 [node name="Guard3" type="CharacterBody2D" parent="." unique_id=1388378072]
-position = Vector2(248, -48)
-collision_layer = 16
+position = Vector2(248, -88)
+collision_layer = 17
+script = ExtResource("40_t1hyw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Guard3" unique_id=1569446197]
 position = Vector2(0, -8)
@@ -4773,18 +4779,26 @@ animation = &"idle"
 position = Vector2(0.022369385, 2.0185757)
 shape = SubResource("RectangleShape2D_7e7ds")
 
-[node name="Area2D" type="Area2D" parent="Guard3" unique_id=1031782847]
-collision_layer = 17
-collision_mask = 17
+[node name="CatchArea" type="Area2D" parent="Guard3" unique_id=1031782847]
+collision_layer = 25
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3/Area2D" unique_id=278554762]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3/CatchArea" unique_id=278554762]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_vfgam")
+
+[node name="DetectionArea" type="Area2D" parent="Guard3" unique_id=782778585]
+collision_layer = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3/DetectionArea" unique_id=397377071]
+position = Vector2(-0.0019836426, 76.62497)
+shape = SubResource("RectangleShape2D_t1hyw")
 
 [connection signal="body_entered" from="Guard1/CatchArea" to="Guard1" method="_on_catch_area_body_entered"]
 [connection signal="body_entered" from="Guard1/DetectionArea" to="Guard1" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Guard1/DetectionArea" to="Guard1" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Guard2/Area2D" to="Guard2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Guard2/Area2D" to="Guard2" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Guard3/Area2D" to="Guard3" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Guard3/Area2D" to="Guard3" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Guard2/CatchArea" to="Guard2" method="_on_catch_area_body_entered"]
+[connection signal="body_entered" from="Guard2/DetectionArea" to="Guard2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guard2/DetectionArea" to="Guard2" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Guard3/CatchArea" to="Guard3" method="_on_catch_area_body_entered"]
+[connection signal="body_entered" from="Guard3/DetectionArea" to="Guard3" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Guard3/DetectionArea" to="Guard3" method="_on_area_2d_body_exited"]
