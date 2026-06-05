@@ -5223,7 +5223,7 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_liws2")
 animation = &"idle"
-frame_progress = 0.57329243
+frame_progress = 0.9552507
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MangangalakalNPC" unique_id=2079775873]
 position = Vector2(0.022369385, 2.0185757)
