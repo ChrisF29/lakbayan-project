@@ -55,7 +55,7 @@ func start_game():
 		return
 
 	get_tree().change_scene_to_file(
-		"res://quiz/babaylan_quiz.tscn"
+		"res://minigames/patintero.tscn"
 	)
 
 func _is_rope_game_active() -> bool:
