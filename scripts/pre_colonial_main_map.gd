@@ -8,7 +8,7 @@ extends Node2D
 @onready var maharlika_target = get_node_or_null("MaharlikaQuestPoint")
 @onready var mangangalakal_target = get_node_or_null("MangangalakalNPC")
 @onready var babaylan_target = get_node_or_null("BabaylanNPC")
-@onready var anito_target = get_node_or_null("AnitoQuestPoint")
+@onready var rope_exit_target = get_node_or_null("RopeGameExitPoint")
 
 func _ready():
 
@@ -56,7 +56,10 @@ func _ready():
     update_maharlika_return_target()
     update_barter_datu_target()
     update_mangangalakal_target()
+    update_babaylan_barter_target()
+    update_babaylan_intro_target()
     update_babaylan_help_target()
+    update_babaylan_return_target()
     update_anito_target()
 
 func start_intro():
@@ -285,6 +288,42 @@ func update_mangangalakal_target():
         }
     )
 
+func update_babaylan_barter_target():
+
+    if mangangalakal_target == null:
+        return
+
+    if !QuestManager.get_state(
+        "babaylan_help_barter_pending"
+    ):
+        return
+
+    if QuestManager.get_state(
+        "babaylan_help_barter_done"
+    ):
+        return
+
+    if QuestManager.current_quest \
+    != "Pumunta sa MANGANGALAKAL para sa anito.":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta sa MANGANGALAKAL para sa anito.",
+
+            "target":
+            mangangalakal_target
+        }
+    )
+
 func update_babaylan_help_target():
 
     if babaylan_target == null:
@@ -321,9 +360,66 @@ func update_babaylan_help_target():
         }
     )
 
+func update_babaylan_intro_target():
+
+    if babaylan_target == null:
+        return
+
+    if QuestManager.current_quest \
+    != "Pumunta kay BABAYLAN":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Pumunta kay BABAYLAN",
+
+            "target":
+            babaylan_target
+        }
+    )
+
+func update_babaylan_return_target():
+
+    if babaylan_target == null:
+        return
+
+    if QuestManager.get_state(
+        "babaylan_help_return_done"
+    ):
+        return
+
+    if QuestManager.current_quest \
+    != "Bumalik kay BABAYLAN.":
+        return
+
+    var current_target = QuestManager.current_target
+
+    if current_target != null \
+    and is_instance_valid(current_target) \
+    and current_target.is_inside_tree():
+        return
+
+    QuestManager.set_quest(
+        {
+            "text":
+            "Bumalik kay BABAYLAN.",
+
+            "target":
+            babaylan_target
+        }
+    )
+
 func update_anito_target():
 
-    if anito_target == null:
+    if rope_exit_target == null:
         return
 
     if !QuestManager.get_state(
@@ -353,6 +449,6 @@ func update_anito_target():
             "Kunin ang Sagradong anito.",
 
             "target":
-            anito_target
+            rope_exit_target
         }
     )

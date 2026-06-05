@@ -54,5 +54,35 @@ func _set_items_text():
 
 
 func _on_back_pressed() -> void:
+	if QuestManager.get_state(
+		"babaylan_help_barter_pending"
+	) \
+	and !QuestManager.get_state(
+		"babaylan_help_barter_done"
+	):
+		QuestManager.set_state(
+			"babaylan_help_barter_pending",
+			false
+		)
+
+		QuestManager.set_state(
+			"babaylan_help_barter_done",
+			true
+		)
+
+		QuestManager.complete_quest(
+			"Pumunta sa MANGANGALAKAL para sa anito."
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Bumalik kay BABAYLAN.",
+
+				"target":
+				null
+			}
+		)
+
 	SpawnManager.next_spawn = "MangangalakalNPC"
 	get_tree().change_scene_to_file("res://maps/pre_colonial_main_map.tscn")

@@ -44,6 +44,111 @@ func _on_area_2d_body_exited(body):
 func start_dialogue():
 
 	if QuestManager.get_state(
+		"babaylan_help_return_done"
+	):
+		return
+
+	if QuestManager.get_state(
+		"babaylan_help_barter_done"
+	):
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var return_dialogue = [
+
+"""
+Ang Mga sagradong anito na iyong nakuha ay mahalagang bahagi ng aming pagsasagawa ng mga ritwal para sa aming kapakanan.
+""",
+
+"""
+Bilang pasasalamat, ibabahagi ko sa iyo ang aming kaalaman tungkol sa mga Babaylan. Kami ang mga pinunong espiritwal ng pamayanan. Nangunguna kami sa mga ritwal, paggagamot, at paghingi ng gabay mula sa mga anito at diwata.
+"""
+		]
+
+		dialogue_box.start(
+			"BABAYLAN",
+			return_dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"babaylan_help_return_done",
+			true
+		)
+
+		QuestManager.complete_quest(
+			"Bumalik kay BABAYLAN."
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
+		"babaylan_help_return_pending"
+	):
+		dialogue_started = true
+
+		interact_button.visible = false
+
+		var return_dialogue = [
+
+"""
+Mahusay! Naipakita mo ang iyong liksi at determinasyon.
+"""
+		]
+
+		dialogue_box.start(
+			"BABAYLAN",
+			return_dialogue
+		)
+
+		await dialogue_box.dialogue_finished
+
+		QuestManager.set_state(
+			"babaylan_help_return_pending",
+			false
+		)
+
+		QuestManager.set_state(
+			"babaylan_help_barter_pending",
+			true
+		)
+
+		QuestManager.complete_quest(
+			"Bumalik kay BABAYLAN."
+		)
+
+		QuestManager.set_quest(
+			{
+				"text":
+				"Pumunta sa MANGANGALAKAL para sa anito.",
+
+				"target":
+				get_parent().get_node_or_null(
+					"MangangalakalNPC"
+				)
+			}
+		)
+
+		dialogue_started = false
+
+		if player_inside:
+			interact_button.visible = true
+
+		return
+
+	if QuestManager.get_state(
+		"babaylan_help_barter_pending"
+	):
+		return
+
+	if QuestManager.get_state(
 		"babaylan_help_done"
 	):
 		return
@@ -104,7 +209,7 @@ Dahil marami nang nagkakasakit dito sa aming lugar.
 		)
 
 		var anito_target = get_parent().get_node_or_null(
-			"AnitoQuestPoint"
+			"RopeGameExitPoint"
 		)
 
 		QuestManager.set_quest(

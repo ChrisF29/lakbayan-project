@@ -28,5 +28,5 @@ func _on_body_entered(body):
 		await fade.fade_out()
 
 	get_tree().change_scene_to_file(
-		"res://minigames/patintero.tscn"
+		"res://quiz/babaylan_quiz.tscn"
 	)

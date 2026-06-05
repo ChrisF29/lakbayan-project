@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://omvupryt7b01"]
+
+[ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="1_2yox5"]
+[ext_resource type="Script" uid="uid://bedi6dte7pclm" path="res://minigames/scripts/babaylan_quiz.gd" id="1_babaylan_quiz"]
+[ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="3_rtn8k"]
+[ext_resource type="Texture2D" uid="uid://ksbn0x4x5jku" path="res://assets/MenuBoard.png" id="4_a2aaq"]
+[ext_resource type="Texture2D" uid="uid://dqg2ckycqi20k" path="res://assets/GoldPNG.png" id="5_51xwl"]
+
+[node name="BabaylanQuiz" type="Control" unique_id=2039481124]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_babaylan_quiz")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1557731000]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2yox5")
+expand_mode = 1
+
+[node name="Panel" type="Panel" parent="." unique_id=762166018]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.0
+offset_top = -124.0
+offset_right = 220.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=77086122]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -126.0
+offset_right = 211.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionLabel" type="Label" parent="Panel/VBoxContainer" unique_id=682498422]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rtn8k")
+text = "Ano ang pangunahing tungkulin ng Babaylan?"
+autowrap_mode = 3
+
+[node name="AnswerA" type="Button" parent="Panel/VBoxContainer" unique_id=71511648]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 15
+text = "Makipagkalakalan"
+
+[node name="AnswerB" type="Button" parent="Panel/VBoxContainer" unique_id=2088982098]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 11
+text = "Mamuno sa mga ritwal at panggagamot"
+
+[node name="AnswerC" type="Button" parent="Panel/VBoxContainer" unique_id=1060012604]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 15
+text = "Mamuno sa Lugar"
+
+[node name="AnswerD" type="Button" parent="Panel/VBoxContainer" unique_id=1153475605]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 15
+text = "Manghuli ng isda"
+
+[node name="RewardBG" type="TextureRect" parent="." unique_id=140575182]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -64.0
+offset_right = 72.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_a2aaq")
+
+[node name="RewardLabel" type="Label" parent="RewardBG" unique_id=1001312372]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 121.0
+offset_bottom = 41.0
+theme_override_colors/font_shadow_color = Color(0.009986146, 0.009986146, 0.009986146, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("3_rtn8k")
+theme_override_font_sizes/font_size = 13
+text = "GINTO +1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldPNG" type="TextureRect" parent="RewardBG" unique_id=934776598]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 104.0
+offset_bottom = 104.0
+texture = ExtResource("5_51xwl")
+expand_mode = 1
