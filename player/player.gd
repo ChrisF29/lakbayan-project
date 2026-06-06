@@ -1,12 +1,18 @@
 extends CharacterBody2D
 
 @export var speed = 100
+@export var dash_speed = 280
+@export var dash_duration = 0.16
+@export var dash_cooldown = 0.45
 
 @onready var sprite = $AnimatedSprite2D
 var facing = "front"
 var can_move = true
 var follow_target = null
 var joystick = null
+var dash_time_left = 0.0
+var dash_cooldown_left = 0.0
+var dash_direction = Vector2.ZERO
 
 func _ready():
 
@@ -17,6 +23,24 @@ func _ready():
     print(joystick)
 
 func _physics_process(delta):
+
+    if dash_cooldown_left > 0.0:
+        dash_cooldown_left = max(
+            dash_cooldown_left - delta,
+            0.0
+        )
+
+    if dash_time_left > 0.0:
+
+        dash_time_left = max(
+            dash_time_left - delta,
+            0.0
+        )
+
+        velocity = dash_direction * dash_speed
+        update_animation(dash_direction)
+        move_and_slide()
+        return
 
     if !can_move:
 
@@ -89,3 +113,30 @@ func update_animation(direction):
 
     if sprite.animation != move_anim:
         sprite.play(move_anim)
+
+func try_dash():
+
+    if !can_move:
+        return
+
+    if dash_time_left > 0.0:
+        return
+
+    if dash_cooldown_left > 0.0:
+        return
+
+    dash_direction = _facing_to_vector()
+    dash_time_left = dash_duration
+    dash_cooldown_left = dash_cooldown
+
+func _facing_to_vector() -> Vector2:
+
+    match facing:
+        "right":
+            return Vector2.RIGHT
+        "left":
+            return Vector2.LEFT
+        "back":
+            return Vector2.UP
+        _:
+            return Vector2.DOWN

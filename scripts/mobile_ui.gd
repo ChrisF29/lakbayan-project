@@ -6,6 +6,11 @@ extends CanvasLayer
 @onready var quit_to_menu_button = $GamePaused/QuitToMenuButton
 @onready var pause_overlay = $TransparentOverlay
 @onready var game_paused_panel = $GamePaused
+@onready var interact_button = $InteractButton
+
+const PATINTERO_SCENE := "res://minigames/patintero.tscn"
+
+var _patintero_mode = false
 
 func _ready():
 
@@ -24,6 +29,17 @@ func _ready():
         quit_to_menu_button.pressed.connect(
             _on_quit_to_menu_pressed
         )
+
+    if interact_button:
+        interact_button.pressed.connect(
+            _on_interact_button_pressed
+        )
+
+    _update_interact_mode_for_scene()
+
+func _process(_delta):
+
+    _update_interact_mode_for_scene()
 
 func _unhandled_input(event):
 
@@ -70,3 +86,39 @@ func _set_pause_ui_visible(is_visible):
     pause_overlay.visible = is_visible
     game_paused_panel.visible = is_visible
     get_tree().paused = is_visible
+
+func _update_interact_mode_for_scene():
+
+    if interact_button == null:
+        return
+
+    var scene = get_tree().current_scene
+    if scene == null:
+        return
+
+    var is_patintero = scene.scene_file_path == PATINTERO_SCENE
+
+    if is_patintero == _patintero_mode:
+        return
+
+    _patintero_mode = is_patintero
+
+    if _patintero_mode:
+        if !InputMap.has_action("dash"):
+            InputMap.add_action("dash")
+
+        interact_button.visible = true
+        interact_button.action = "dash"
+    else:
+        interact_button.action = "interact"
+        interact_button.visible = false
+
+func _on_interact_button_pressed():
+
+    if !_patintero_mode:
+        return
+
+    var player = get_tree().get_first_node_in_group("player")
+
+    if player != null and player.has_method("try_dash"):
+        player.try_dash()
