@@ -5061,7 +5061,7 @@ size = Vector2(32.000656, 39.427036)
 radius = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1hyw"]
-size = Vector2(382, 157.24998)
+size = Vector2(382, 222.8281)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfgam"]
 radius = 24.0
@@ -5171,7 +5171,7 @@ shape = SubResource("CircleShape2D_vfgam")
 collision_layer = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard2/DetectionArea" unique_id=-1825868582]
-position = Vector2(-0.0019836426, 76.62497)
+position = Vector2(-0.0019836426, 109.41402)
 shape = SubResource("RectangleShape2D_t1hyw")
 
 [node name="Guard3" type="CharacterBody2D" parent="." unique_id=1388378072]
