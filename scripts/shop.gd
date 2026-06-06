@@ -62,3 +62,12 @@ func _on_back_pressed() -> void:
 
 	SpawnManager.next_spawn = "MangangalakalNPC"
 	get_tree().change_scene_to_file("res://maps/pre_colonial_main_map.tscn")
+
+func _on_buy_kampilan_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/shopkampilan.tscn")
+
+func _on_buy_bangkaw_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/shopbangkaw.tscn")
+
+func _on_buy_anito_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/shopanito.tscn")
