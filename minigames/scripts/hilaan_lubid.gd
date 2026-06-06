@@ -11,7 +11,11 @@ extends Control
 @onready var timer =$Timer
 
 @onready var timer_label =$TimerLabel
+@onready var maharlika = $Maharlika
+@onready var maharlika2 = $Maharlika2
 
+@onready var enemy = $Enemy
+@onready var enemy2 = $Enemy2
 var rope_value = 50
 
 @export var base_enemy_force = 10.0
@@ -24,6 +28,7 @@ var rope_value = 50
 var game_finished = false
 
 var game_started = false
+var player_pull_timer = 0.0
 
 var rope_left_x = 0.0
 var rope_right_x = 0.0
@@ -32,7 +37,7 @@ const WIN_THRESHOLD = 99.0
 @export var win_margin_px = 8.0
 
 func _ready():
-
+	play_steady()
 	rope_bar.min_value = 0
 	rope_bar.max_value = 100
 	rope_bar.value = 100
@@ -78,8 +83,16 @@ ikaw ang mananalo.
 
 func _process(delta):
 
-	if game_finished or !game_started:
+	if game_finished:
 		return
+
+	if !game_started:
+		return
+
+	player_pull_timer -= delta
+
+	if player_pull_timer <= 0.0:
+		play_enemy_pull()
 
 	var enemy_force = get_enemy_force()
 	rope_value -= enemy_force * delta
@@ -102,6 +115,13 @@ func _on_pull_button_pressed():
 
 	if game_finished:
 		return
+	
+	if !game_started:
+		return
+
+	player_pull_timer = 0.20
+
+	play_player_pull()
 
 	rope_value += get_player_force()
 	rope_value = clamp(
@@ -180,8 +200,29 @@ func update_marker_position():
 
 	marker.global_position = Vector2(
 		target_x - (marker.size.x * 0.5),
-		rope_center_y - (marker.size.y * 0.5)
+		rope_center_y - (marker.size.y * 0.2)
 	)
+
+func play_steady():
+
+	maharlika.play("steady")
+	maharlika2.play("steady")
+	enemy.play("steady")
+	enemy2.play("steady")
+
+func play_player_pull():
+
+	maharlika.play("pulling")
+	maharlika2.play("pulling")
+	enemy.play("pulled")
+	enemy2.play("pulled")
+
+func play_enemy_pull():
+
+	maharlika.play("pulled")
+	maharlika2.play("pulled")
+	enemy.play("pulling")
+	enemy2.play("pulling")
 
 func win_game():
 

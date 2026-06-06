@@ -41,7 +41,7 @@
 [ext_resource type="Script" uid="uid://brykxb1devwjc" path="res://player/player.gd" id="39_o1itg"]
 [ext_resource type="Texture2D" uid="uid://6lbb83exa5f6" path="res://player/Top-down Character (32x32, idle-run).png" id="40_mvkm0"]
 [ext_resource type="Script" uid="uid://d2qy5icyp4t01" path="res://minigames/scripts/patintero_guard.gd" id="40_t1hyw"]
-[ext_resource type="Texture2D" uid="uid://fsks2yy3walw" path="res://npc/SHOPKEEPERt.png" id="41_o1itg"]
+[ext_resource type="Texture2D" uid="uid://ck7cbiqwe3sf2" path="res://npc/patinteroguard.png" id="42_7e7ds"]
 [ext_resource type="PackedScene" uid="uid://bt7i2dmonvdx0" path="res://scenes/mobile_ui.tscn" id="43_mvkm0"]
 [ext_resource type="Script" uid="uid://dyscdj5lci6jt" path="res://minigames/scripts/patintero_exit.gd" id="44_7e7ds"]
 
@@ -5004,57 +5004,50 @@ size = Vector2(16, 17.066528)
 [sub_resource type="CircleShape2D" id="CircleShape2D_oul6g"]
 radius = 12.918045
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3w8s5"]
-atlas = ExtResource("41_o1itg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vfgam"]
+atlas = ExtResource("42_7e7ds")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xes6h"]
+atlas = ExtResource("42_7e7ds")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vkho2"]
-atlas = ExtResource("41_o1itg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xri8k"]
+atlas = ExtResource("42_7e7ds")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vfsnc"]
-atlas = ExtResource("41_o1itg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_rba6f"]
+atlas = ExtResource("42_7e7ds")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lx3lj"]
-atlas = ExtResource("41_o1itg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqhe0"]
+atlas = ExtResource("42_7e7ds")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_acns5"]
-atlas = ExtResource("41_o1itg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_d832j"]
+atlas = ExtResource("42_7e7ds")
 region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_umau4"]
-atlas = ExtResource("41_o1itg")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uvnnx"]
-atlas = ExtResource("41_o1itg")
-region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvkm0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3w8s5")
+"texture": SubResource("AtlasTexture_vfgam")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vkho2")
+"texture": SubResource("AtlasTexture_xes6h")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vfsnc")
+"texture": SubResource("AtlasTexture_xri8k")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lx3lj")
+"texture": SubResource("AtlasTexture_rba6f")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_acns5")
+"texture": SubResource("AtlasTexture_fqhe0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_umau4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvnnx")
+"texture": SubResource("AtlasTexture_d832j")
 }],
 "loop": true,
 "name": &"idle",
@@ -5072,6 +5065,9 @@ size = Vector2(382, 157.24998)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vfgam"]
 radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xes6h"]
+size = Vector2(382, 354.0781)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfgam"]
 size = Vector2(107.33008, 73)
@@ -5128,6 +5124,8 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mvkm0")
 animation = &"idle"
+frame = 3
+frame_progress = 0.34937626
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard1" unique_id=84682845]
 position = Vector2(0.022369385, 2.0185757)
@@ -5202,8 +5200,8 @@ shape = SubResource("CircleShape2D_vfgam")
 collision_layer = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guard3/DetectionArea" unique_id=397377071]
-position = Vector2(-0.0019836426, 76.62497)
-shape = SubResource("RectangleShape2D_t1hyw")
+position = Vector2(-0.0019836426, 175.03902)
+shape = SubResource("RectangleShape2D_xes6h")
 
 [node name="MobileUI" parent="." unique_id=1208487421 instance=ExtResource("43_mvkm0")]
 

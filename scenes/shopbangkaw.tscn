@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://chsd3ksgdx80y"]
+
+[ext_resource type="Script" uid="uid://cjs4wga7jepsf" path="res://scenes/shopdescriptionbangkaw.gd" id="1_ho5o1"]
+[ext_resource type="Texture2D" uid="uid://csjkpbtwhqp2t" path="res://assets/2413177.jpg" id="2_ltb85"]
+[ext_resource type="Texture2D" uid="uid://dm381p0nxp6l3" path="res://assets/timawa.png" id="3_4xdgh"]
+[ext_resource type="FontFile" uid="uid://xvmg0to5anpq" path="res://assets/fonts/Daydream DEMO.otf" id="4_qmvea"]
+[ext_resource type="Texture2D" uid="uid://cdjdbfdy82giq" path="res://assets/buttonLong_beige.png" id="5_5wmbw"]
+[ext_resource type="Texture2D" uid="uid://besv0c1iluoo7" path="res://assets/buttonLong_beige_pressed.png" id="6_ekk1q"]
+[ext_resource type="FontFile" uid="uid://cyn6rpo1kgjif" path="res://assets/fonts/Mythical Prince.ttf" id="7_02hsw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4g16w"]
+texture = ExtResource("5_5wmbw")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r5cmq"]
+texture = ExtResource("6_ekk1q")
+
+[node name="shopbangkaw" type="Control" unique_id=457847877]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ho5o1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=34330791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ltb85")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=566110344]
+layout_mode = 0
+offset_left = 165.84933
+offset_top = 103.68518
+offset_right = 255.37909
+offset_bottom = 234.30295
+rotation = -1.5707964
+texture = ExtResource("3_4xdgh")
+
+[node name="Back" type="Button" parent="." unique_id=1442947632]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 48.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
+theme_override_colors/font_focus_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
+theme_override_colors/font_pressed_color = Color(0.45882353, 0.21176471, 0.08235294, 1)
+theme_override_colors/font_hover_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
+theme_override_fonts/font = ExtResource("4_qmvea")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxTexture_4g16w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_r5cmq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4g16w")
+text = "Back"
+
+[node name="GameTitle" type="RichTextLabel" parent="." unique_id=751450510]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -232.0
+offset_top = 96.0
+offset_right = 232.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 4
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/normal_font = ExtResource("7_02hsw")
+theme_override_font_sizes/normal_font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

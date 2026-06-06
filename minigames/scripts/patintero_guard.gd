@@ -12,9 +12,12 @@ extends CharacterBody2D
 var direction: int = 1
 var player_detected := false
 
+@onready var sprite = $AnimatedSprite2D
 @onready var player = get_parent().get_node("Player")
 
 func _physics_process(delta):
+
+    sprite.play("idle")
 
     if player == null:
         return
