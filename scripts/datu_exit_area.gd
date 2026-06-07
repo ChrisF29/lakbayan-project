@@ -8,47 +8,47 @@ var player_inside = false
 
 func _process(delta):
 
-    if player_inside \
-    and Input.is_action_just_pressed(
+	if player_inside \
+	and Input.is_action_just_pressed(
         "interact"
-    ):
+	):
 
-        exit_house()
+		exit_house()
 		
 func exit_house():
 
-    await fade.fade_out()
+	await fade.fade_out()
 
-    if QuestManager.get_state(
+	if QuestManager.get_state(
         "hide_seek_started"
-    ) \
-    and !QuestManager.get_state(
+	) \
+	and !QuestManager.get_state(
         "hide_seek_complete"
-    ):
+	):
 
-        get_tree().change_scene_to_file(
+		get_tree().change_scene_to_file(
             "res://minigames/hide_seek_area.tscn"
-        )
-        return
+		)
+		return
 
-    SpawnManager.next_spawn = "DatuHouseExitSpawn"
+	SpawnManager.next_spawn = "DatuHouseExitSpawn"
 
-    get_tree().change_scene_to_file(
+	get_tree().change_scene_to_file(
         "res://maps/pre_colonial_main_map.tscn"
-    )
+	)
 
 func _on_body_entered(body):
 
-    if body.is_in_group("player"):
+	if body.is_in_group("player"):
 
-        player_inside = true
+		player_inside = true
 
-        interact_button.visible = true
+		interact_button.visible = true
 
 func _on_body_exited(body):
 
-    if body.is_in_group("player"):
+	if body.is_in_group("player"):
 
-        player_inside = false
+		player_inside = false
 
-        interact_button.visible = false
+		interact_button.visible = false

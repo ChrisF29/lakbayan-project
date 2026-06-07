@@ -3,12 +3,40 @@ extends Node
 var player_name = "Dayuhan"
 var ginto = 0
 var perlas = 0
+var has_kampilan = false
+var has_bangkaw = false
+var has_anito = false
 
 const SAVE_PATH := "user://save_game.json"
 
 var _pending_scene_path = ""
 var _pending_player_position = null
 var _pending_restore = false
+
+
+func reset_game() -> bool:
+	player_name = "Dayuhan"
+	ginto = 0
+	perlas = 0
+	has_kampilan = false
+	has_bangkaw = false
+	has_anito = false
+
+	QuestManager.current_quest = ""
+	QuestManager.current_target = null
+	QuestManager.village_intro_done = false
+	QuestManager.maharlika_arc_started = false
+	QuestManager.completed_quests.clear()
+	QuestManager.unlocked_quests.clear()
+	QuestManager.quest_states.clear()
+
+	SpawnManager.next_spawn = ""
+
+	_pending_scene_path = ""
+	_pending_player_position = null
+	_pending_restore = false
+
+	return save_game()
 
 func save_game() -> bool:
 
@@ -93,7 +121,10 @@ func _build_save_data() -> Dictionary:
 		"player": {
 			"name": player_name,
 			"ginto": ginto,
-			"perlas": perlas
+			"perlas": perlas,
+			"has_kampilan": has_kampilan,
+			"has_bangkaw": has_bangkaw,
+			"has_anito": has_anito
 		},
 		"quest": {
 			"current_quest": QuestManager.current_quest,
@@ -127,6 +158,18 @@ func _apply_save_data(data: Dictionary) -> void:
 		perlas = player_data.get(
 			"perlas",
 			perlas
+		)
+		has_kampilan = player_data.get(
+			"has_kampilan",
+			has_kampilan
+		)
+		has_bangkaw = player_data.get(
+			"has_bangkaw",
+			has_bangkaw
+		)
+		has_anito = player_data.get(
+			"has_anito",
+			has_anito
 		)
 
 	var quest_data = data.get(

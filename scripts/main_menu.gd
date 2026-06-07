@@ -3,6 +3,7 @@ extends Control
 @onready var title = $GameTitle
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var options: TextureRect = $Options
+@onready var reset_game_button: Button = $ResetGameButton
 @onready var fade_anim: AnimationPlayer = $FadeLayer/AnimationPlayer
 @onready var fade_rect: ColorRect = $FadeLayer/ColorRect
 
@@ -16,6 +17,7 @@ func _ready():
 	fade_rect.color = Color(0, 0, 0, 0)
 	main_buttons.visible = true
 	options.visible = false
+	reset_game_button.pressed.connect(_on_reset_game_pressed)
 	# Ensure UI is visible
 	title.visible = true
 	title.modulate.a = 1.0
@@ -98,3 +100,15 @@ func _on_load_game_pressed() -> void:
 	await fade_anim.animation_finished
 
 	get_tree().change_scene_to_file(scene_path)
+
+
+func _on_reset_game_pressed() -> void:
+	var saved := PlayerData.reset_game()
+
+	if !saved:
+		push_warning("Failed to reset save data.")
+		return
+
+	main_buttons.visible = true
+	options.visible = false
+	print("Game data reset.")

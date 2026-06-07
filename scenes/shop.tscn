@@ -149,9 +149,9 @@ texture = ExtResource("11_1v8qu")
 
 [node name="BuyKampilan" type="Button" parent="Item1" unique_id=965016466]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 29.0
 offset_top = 104.0
-offset_right = 104.0
+offset_right = 93.0
 offset_bottom = 128.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
@@ -159,7 +159,7 @@ theme_override_colors/font_focus_color = Color(0.59607846, 0.28627452, 0.1215686
 theme_override_colors/font_pressed_color = Color(0.45882353, 0.21176471, 0.08235294, 1)
 theme_override_colors/font_hover_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("6_y6sft")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxTexture_1v8qu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_44xle")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1v8qu")
@@ -211,9 +211,9 @@ texture = ExtResource("12_44xle")
 
 [node name="BuyBangkaw" type="Button" parent="Item2" unique_id=1577221668]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 24.0
 offset_top = 104.0
-offset_right = 104.0
+offset_right = 88.0
 offset_bottom = 128.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
@@ -221,7 +221,7 @@ theme_override_colors/font_focus_color = Color(0.59607846, 0.28627452, 0.1215686
 theme_override_colors/font_pressed_color = Color(0.45882353, 0.21176471, 0.08235294, 1)
 theme_override_colors/font_hover_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("6_y6sft")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxTexture_1v8qu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_44xle")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1v8qu")
@@ -272,9 +272,9 @@ texture = ExtResource("13_24it5")
 
 [node name="BuyAnito" type="Button" parent="Item3" unique_id=1812700073]
 layout_mode = 0
-offset_left = 40.0
+offset_left = 29.0
 offset_top = 104.0
-offset_right = 104.0
+offset_right = 93.0
 offset_bottom = 128.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.85490197, 0.4509804, 0.24313726, 1)
@@ -282,7 +282,7 @@ theme_override_colors/font_focus_color = Color(0.59607846, 0.28627452, 0.1215686
 theme_override_colors/font_pressed_color = Color(0.45882353, 0.21176471, 0.08235294, 1)
 theme_override_colors/font_hover_color = Color(0.59607846, 0.28627452, 0.12156863, 1)
 theme_override_fonts/font = ExtResource("6_y6sft")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 9
 theme_override_styles/normal = SubResource("StyleBoxTexture_1v8qu")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_44xle")
 theme_override_styles/hover = SubResource("StyleBoxTexture_1v8qu")
